@@ -1501,21 +1501,28 @@
         }
       }
 
-      window.onload = async () => {
+      window.onload = () => {
         showRandomQuote();
-
-        await waitForFontAwesomeIcons(); // Wait for icons to render
 
         const loadingCircle = document.getElementById("loading-circle");
         const content = document.querySelector(".container_universal_hidden");
 
-        if (loadingCircle) loadingCircle.classList.add("hidden");
+        const finishLoading = () => {
+          if (loadingCircle) loadingCircle.classList.add("hidden");
+          setTimeout(() => {
+            if (content) content.classList.add("show");
+          }, 300); // faster fade-in
+          setInterval(showNextQuote, 3000);
+        };
 
-        setTimeout(() => {
-          if (content) content.classList.add("show");
-        }, 500);
+        // Start a timer so we don’t wait forever
+        const maxDelay = setTimeout(finishLoading, 1500); // fallback after 1.5s
 
-        setInterval(showNextQuote, 3000);
+        // Try to wait for icons first
+        waitForFontAwesomeIcons().then(() => {
+          clearTimeout(maxDelay);
+          finishLoading();
+        });
       };
     </script>
   </body>
