@@ -380,6 +380,11 @@
         gap: 10px;
         justify-content: flex-start;
       }
+
+      .publish_image {
+        border-radius: 15px;
+        margin: 18px 0;
+      }
     </style>
   </head>
   <body class="text-white">
@@ -1073,6 +1078,109 @@
         </form>
       </section>
 
+      <section id="whatnext" class="px-6 py-24 max-w-3xl mx-auto text-center">
+        <h3 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
+          What’s Next?
+        </h3>
+        <p class="text-zinc-400 text-base md:text-lg leading-relaxed mb-8">
+          You’ve successfully generated your portfolio — great job! Now let’s
+          bring it to life.
+        </p>
+
+        <div
+          class="text-left space-y-6 text-zinc-400 text-base md:text-lg leading-relaxed md:leading-loose"
+        >
+          <div>
+            <strong class="text-white">1. Unzip the Downloaded Folder</strong
+            ><br />
+            Locate the downloaded <code>.zip</code> file on your computer and
+            extract it.
+          </div>
+
+          <div>
+            <strong class="text-white">2. View Your Portfolio Locally</strong
+            ><br />
+            Open the unzipped folder and double-click the
+            <code>index.html</code> file. It will open in your default web
+            browser — that’s your live portfolio!
+          </div>
+
+          <div>
+            <strong class="text-white"
+              >Want to Publish It Online for Free?</strong
+            ><br />
+            You can host your portfolio using
+            <a
+              href="https://pages.github.com"
+              target="_blank"
+              class="underline hover:text-white"
+              >GitHub Pages</a
+            >. Here’s how:
+          </div>
+
+          <div>
+            <strong class="text-white">3. Create a GitHub Account</strong><br />
+            Sign up at
+            <a
+              href="https://github.com"
+              target="_blank"
+              class="underline hover:text-white"
+              >github.com</a
+            >
+            if you don’t have one already.
+          </div>
+
+          <div>
+            <strong class="text-white">4. Create a New Repository</strong><br />
+            - Go to your GitHub dashboard<br />
+            - Click <em>"New Repository"</em><br />
+            <img class="publish_image" src="Publish/1.png" alt="" />
+
+            - Name it (e.g., <code>my-portfolio</code>) and set it to public<br />
+            <img class="publish_image" src="Publish/2.png" alt="" />
+            <img class="publish_image" src="Publish/3.png" alt="" />
+
+            - Click <em>"Create repository"</em>
+            <img class="publish_image" src="Publish/4.png" alt="" />
+          </div>
+
+          <div>
+            <strong class="text-white">5. Upload Your Files</strong><br />
+            Drag and drop the contents of the unzipped folder (not the folder
+            itself) into the repo and commit the changes.
+            <img class="publish_image" src="Publish/5.png" alt="" />
+            <img class="publish_image" src="Publish/6.png" alt="" />
+          </div>
+
+          <div>
+            <strong class="text-white">6. Enable GitHub Pages</strong><br />
+            - Go to <em>Settings > Pages</em><br />
+            <img class="publish_image" src="Publish/7.png" alt="" />
+            <img class="publish_image" src="Publish/8.png" alt="" />
+            - Under <em>"Source"</em>, select <code>Gihub Actions</code> then
+            click Configure.
+            <img class="publish_image" src="Publish/9.png" alt="" />
+            <img class="publish_image" src="Publish/10.png" alt="" />
+
+            - Then click <em>"Commit Changes.."</em>, then
+            <code>Commit Changes.</code>
+            <img class="publish_image" src="Publish/11.png" alt="" />
+            - Now click <em>"Settings"</em>, then
+            <code>Pages.</code>
+            <img class="publish_image" src="Publish/12.png" alt="" />
+            - GitHub will give you a public URL like:<br />
+            <code>https://yourusername.github.io/my-portfolio</code>
+            <img class="publish_image" src="Publish/13.png" alt="" />
+          </div>
+
+          <div>
+            <strong class="text-white">You’re Live!</strong><br />
+            Share your link and let the world see what you’ve built. And
+            remember — you can return anytime to update or improve your site.
+          </div>
+        </div>
+      </section>
+
       <section
         id="message_for_you"
         class="px-6 py-24 max-w-3xl mx-auto text-center"
@@ -1174,130 +1282,6 @@
       </footer>
     </div>
     <script>
-      document.getElementById("year").textContent = new Date().getFullYear();
-
-      document.addEventListener("DOMContentLoaded", () => {
-        setupNav();
-      });
-
-      function setupNav() {
-        const navLinks = document.querySelectorAll(".nav-link");
-        navLinks.forEach((link) => {
-          link.addEventListener("click", () => {
-            document.getElementById("menu-btn").checked = false;
-          });
-        });
-      }
-
-      function waitForFontAwesomeIcons(timeout = 5000) {
-        return new Promise((resolve) => {
-          const start = performance.now();
-
-          const observer = new MutationObserver(() => {
-            const icons = document.querySelectorAll(
-              ".fa, .fas, .far, .fal, .fab, .fad"
-            );
-            const allIconsRendered = Array.from(icons).every((icon) =>
-              getComputedStyle(icon)
-                .fontFamily.toLowerCase()
-                .includes("fontawesome")
-            );
-            if (allIconsRendered) {
-              observer.disconnect();
-              resolve();
-            }
-          });
-
-          observer.observe(document.body, {
-            childList: true,
-            subtree: true,
-          });
-
-          setTimeout(() => {
-            observer.disconnect();
-            resolve();
-          }, timeout);
-        });
-      }
-
-      const quotes = [
-        "Good things don’t rush… but they sparkle!",
-        "Hold tight, we’re dusting off some magic!",
-        "Crafting smiles, one second at a time!",
-        "Just a tick—your joy is almost here!",
-        "Like a butterfly emerging… almost there!",
-        "Patience, please—your happiness is in the oven!",
-        "Great things take time… like your favorite cake!",
-        "Baking up some fun… almost done!",
-        "One moment… we’re adding the sparkle!",
-        "Hang tight—dreams are loading!",
-        "Hold tight, magic’s brewing!",
-        "Almost there, just adding stardust!",
-        "Creating smiles, one moment at a time!",
-        "Just a sec… dreams in progress!",
-        "A masterpiece is loading!",
-        "Hang tight, joy is coming!",
-        "Patience… a little spark is being made!",
-        "Your perfect moment is almost here!",
-        "Wait for it… magic’s on its way!",
-        "Almost ready… sunshine in the mix!",
-      ];
-
-      let quoteIndex = 0;
-      const quoteEl = document.getElementById("quote");
-
-      function showNextQuote() {
-        if (!quoteEl) return;
-
-        quoteEl.classList.remove("fade-in");
-        quoteEl.classList.add("fade-out");
-
-        setTimeout(() => {
-          quoteIndex = (quoteIndex + 1) % quotes.length;
-          quoteEl.textContent = quotes[quoteIndex];
-          quoteEl.classList.remove("fade-out");
-          quoteEl.classList.add("fade-in");
-        }, 300);
-      }
-
-      function showRandomQuote() {
-        if (quoteEl) {
-          const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-          quoteEl.textContent = randomQuote;
-          quoteEl.classList.add("fade-in");
-        }
-      }
-
-      window.onload = () => {
-        showRandomQuote();
-
-        const loadingCircle = document.getElementById("loading-circle");
-        const content = document.querySelector(".container_universal_hidden");
-
-        if (loadingCircle) loadingCircle.classList.add("hidden");
-
-        setTimeout(() => {
-          if (content) content.classList.add("show");
-        }, 500);
-
-        setInterval(showNextQuote, 3000);
-      };
-
-      function truncateText(element, maxLength) {
-        const text = element.textContent.trim();
-        if (text.length > maxLength) {
-          element.textContent = text.substring(0, maxLength) + "...";
-        }
-      }
-
-      const descriptionElements = document.querySelectorAll(
-        ".project-description"
-      );
-
-      descriptionElements.forEach((element) => {
-        truncateText(element, 150);
-      });
-
       const zip = new JSZip();
       let faviconBlob = null;
 
@@ -1422,6 +1406,115 @@
           };
         }
       });
+
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      document.addEventListener("DOMContentLoaded", () => {
+        setupNav();
+      });
+
+      function setupNav() {
+        const navLinks = document.querySelectorAll(".nav-link");
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            document.getElementById("menu-btn").checked = false;
+          });
+        });
+      }
+
+      function waitForFontAwesomeIcons(timeout = 5000) {
+        return new Promise((resolve) => {
+          const start = performance.now();
+
+          const observer = new MutationObserver(() => {
+            const icons = document.querySelectorAll(
+              ".fa, .fas, .far, .fal, .fab, .fad"
+            );
+            const allIconsRendered = Array.from(icons).every((icon) =>
+              getComputedStyle(icon)
+                .fontFamily.toLowerCase()
+                .includes("fontawesome")
+            );
+            if (allIconsRendered) {
+              observer.disconnect();
+              resolve();
+            }
+          });
+
+          observer.observe(document.body, {
+            childList: true,
+            subtree: true,
+          });
+
+          setTimeout(() => {
+            observer.disconnect();
+            resolve();
+          }, timeout);
+        });
+      }
+
+      const quotes = [
+        "Good things don’t rush… but they sparkle!",
+        "Hold tight, we’re dusting off some magic!",
+        "Crafting smiles, one second at a time!",
+        "Just a tick—your joy is almost here!",
+        "Like a butterfly emerging… almost there!",
+        "Patience, please—your happiness is in the oven!",
+        "Great things take time… like your favorite cake!",
+        "Baking up some fun… almost done!",
+        "One moment… we’re adding the sparkle!",
+        "Hang tight—dreams are loading!",
+        "Hold tight, magic’s brewing!",
+        "Almost there, just adding stardust!",
+        "Creating smiles, one moment at a time!",
+        "Just a sec… dreams in progress!",
+        "A masterpiece is loading!",
+        "Hang tight, joy is coming!",
+        "Patience… a little spark is being made!",
+        "Your perfect moment is almost here!",
+        "Wait for it… magic’s on its way!",
+        "Almost ready… sunshine in the mix!",
+      ];
+
+      let quoteIndex = 0;
+      const quoteEl = document.getElementById("quote");
+
+      function showNextQuote() {
+        if (!quoteEl) return;
+
+        quoteEl.classList.remove("fade-in");
+        quoteEl.classList.add("fade-out");
+
+        setTimeout(() => {
+          quoteIndex = (quoteIndex + 1) % quotes.length;
+          quoteEl.textContent = quotes[quoteIndex];
+          quoteEl.classList.remove("fade-out");
+          quoteEl.classList.add("fade-in");
+        }, 300);
+      }
+
+      function showRandomQuote() {
+        if (quoteEl) {
+          const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
+          quoteEl.textContent = randomQuote;
+          quoteEl.classList.add("fade-in");
+        }
+      }
+
+      window.onload = () => {
+        showRandomQuote();
+
+        const loadingCircle = document.getElementById("loading-circle");
+        const content = document.querySelector(".container_universal_hidden");
+
+        if (loadingCircle) loadingCircle.classList.add("hidden");
+
+        setTimeout(() => {
+          if (content) content.classList.add("show");
+        }, 500);
+
+        setInterval(showNextQuote, 3000);
+      };
     </script>
   </body>
 </html>
