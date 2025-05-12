@@ -1287,10 +1287,7 @@
 
       async function handleFaviconChange(event) {
         const faviconFile = event.target.files[0];
-        if (!faviconFile) {
-          alert("Please select a favicon image file.");
-          return;
-        }
+        if (!faviconFile) return alert("Please select a favicon image file.");
 
         const reader = new FileReader();
         reader.onload = (e) => {
@@ -1303,7 +1300,7 @@
             const ctx = canvas.getContext("2d");
 
             ctx.beginPath();
-            ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2, true);
+            ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
             ctx.closePath();
             ctx.clip();
             ctx.drawImage(
@@ -1329,194 +1326,100 @@
             }
             faviconTag.href = croppedDataURL;
 
-            document.getElementById("faviconPreview").src = croppedDataURL;
-            document.getElementById("faviconPreview").style.display = "block";
+            const preview = document.getElementById("faviconPreview");
+            if (preview) {
+              preview.src = croppedDataURL;
+              preview.style.display = "block";
+            }
           };
           img.onerror = () => alert("Invalid image file.");
           img.src = e.target.result;
         };
-
         reader.readAsDataURL(faviconFile);
       }
 
-      function extractPalette(img, paletteContainer) {
+      function extractPalette(img, container) {
         const canvas = document.createElement("canvas");
         const ctx = canvas.getContext("2d");
-
-        if (img.naturalWidth === 0 || img.naturalHeight === 0) return;
+        if (!img.naturalWidth || !img.naturalHeight) return;
 
         canvas.width = img.naturalWidth;
         canvas.height = img.naturalHeight;
         ctx.drawImage(img, 0, 0);
 
-        const imageData = ctx.getImageData(
-          0,
-          0,
-          canvas.width,
-          canvas.height
-        ).data;
-        const colorMap = {};
+        const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+        const colors = {};
 
-        for (let i = 0; i < imageData.length; i += 4) {
-          const r = Math.round(imageData[i] / 32) * 32;
-          const g = Math.round(imageData[i + 1] / 32) * 32;
-          const b = Math.round(imageData[i + 2] / 32) * 32;
+        for (let i = 0; i < data.length; i += 4) {
+          const r = Math.round(data[i] / 32) * 32;
+          const g = Math.round(data[i + 1] / 32) * 32;
+          const b = Math.round(data[i + 2] / 32) * 32;
           const key = `${r},${g},${b}`;
-          colorMap[key] = (colorMap[key] || 0) + 1;
+          colors[key] = (colors[key] || 0) + 1;
         }
 
-        const topColors = Object.entries(colorMap)
+        const topColors = Object.entries(colors)
           .sort((a, b) => b[1] - a[1])
           .slice(0, 3)
           .map(([key]) => `rgb(${key})`);
 
-        paletteContainer.innerHTML = "";
+        container.innerHTML = "";
         topColors.forEach((color) => {
           const swatch = document.createElement("div");
           swatch.className = "w-4 h-4 rounded shadow";
           swatch.style.backgroundColor = color;
-          paletteContainer.appendChild(swatch);
+          container.appendChild(swatch);
         });
       }
 
-      function safeExtractPalette(img, paletteContainer, attempt = 0) {
+      function safeExtractPalette(img, container, attempt = 0) {
         if (img.naturalWidth === 0 && attempt < 5) {
           setTimeout(
-            () => safeExtractPalette(img, paletteContainer, attempt + 1),
+            () => safeExtractPalette(img, container, attempt + 1),
             100
           );
         } else {
-          extractPalette(img, paletteContainer);
+          extractPalette(img, container);
         }
       }
 
-      document.querySelectorAll(".bg-option").forEach((option) => {
-        const img = option.querySelector("img");
-        const palette = option.querySelector(".palette");
-
-        function generatePalette() {
-          safeExtractPalette(img, palette);
-        }
-
-        if (img.complete) {
-          img.decode().then(generatePalette).catch(generatePalette);
-        } else {
-          img.onload = () => {
-            img.decode().then(generatePalette).catch(generatePalette);
-          };
-        }
-      });
-
-      document.getElementById("year").textContent = new Date().getFullYear();
+      function setupNav() {
+        document.querySelectorAll(".nav-link").forEach((link) => {
+          link.addEventListener("click", () => {
+            const menu = document.getElementById("menu-btn");
+            if (menu) menu.checked = false;
+          });
+        });
+      }
 
       document.addEventListener("DOMContentLoaded", () => {
         setupNav();
+        document.getElementById("year").textContent = new Date().getFullYear();
+
+        document.querySelectorAll(".bg-option").forEach((option) => {
+          const img = option.querySelector("img");
+          const palette = option.querySelector(".palette");
+
+          const generate = () => safeExtractPalette(img, palette);
+          if (img.complete) {
+            img.decode().then(generate).catch(generate);
+          } else {
+            img.onload = () => img.decode().then(generate).catch(generate);
+          }
+        });
       });
 
-      function setupNav() {
-        const navLinks = document.querySelectorAll(".nav-link");
-        navLinks.forEach((link) => {
-          link.addEventListener("click", () => {
-            document.getElementById("menu-btn").checked = false;
-          });
-        });
-      }
-
-      function waitForFontAwesomeIcons(timeout = 5000) {
-        return new Promise((resolve) => {
-          const start = performance.now();
-
-          const observer = new MutationObserver(() => {
-            const icons = document.querySelectorAll(
-              ".fa, .fas, .far, .fal, .fab, .fad"
-            );
-            const allIconsRendered = Array.from(icons).every((icon) =>
-              getComputedStyle(icon)
-                .fontFamily.toLowerCase()
-                .includes("fontawesome")
-            );
-            if (allIconsRendered) {
-              observer.disconnect();
-              resolve();
-            }
-          });
-
-          observer.observe(document.body, {
-            childList: true,
-            subtree: true,
-          });
-
-          setTimeout(() => {
-            observer.disconnect();
-            resolve();
-          }, timeout);
-        });
-      }
-
-      const quotes = [
-        "Good things don’t rush… but they sparkle!",
-        "Hold tight, we’re dusting off some magic!",
-        "Crafting smiles, one second at a time!",
-        "Just a tick—your joy is almost here!",
-        "Like a butterfly emerging… almost there!",
-        "Patience, please—your happiness is in the oven!",
-        "Great things take time… like your favorite cake!",
-        "Baking up some fun… almost done!",
-        "One moment… we’re adding the sparkle!",
-        "Hang tight—dreams are loading!",
-        "Hold tight, magic’s brewing!",
-        "Almost there, just adding stardust!",
-        "Creating smiles, one moment at a time!",
-        "Just a sec… dreams in progress!",
-        "A masterpiece is loading!",
-        "Hang tight, joy is coming!",
-        "Patience… a little spark is being made!",
-        "Your perfect moment is almost here!",
-        "Wait for it… magic’s on its way!",
-        "Almost ready… sunshine in the mix!",
-      ];
-
-      let quoteIndex = 0;
-      const quoteEl = document.getElementById("quote");
-
-      function showNextQuote() {
-        if (!quoteEl) return;
-
-        quoteEl.classList.remove("fade-in");
-        quoteEl.classList.add("fade-out");
-
-        setTimeout(() => {
-          quoteIndex = (quoteIndex + 1) % quotes.length;
-          quoteEl.textContent = quotes[quoteIndex];
-          quoteEl.classList.remove("fade-out");
-          quoteEl.classList.add("fade-in");
-        }, 300);
-      }
-
-      function showRandomQuote() {
-        if (quoteEl) {
-          const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-          quoteEl.textContent = randomQuote;
-          quoteEl.classList.add("fade-in");
-        }
-      }
-
       window.addEventListener("load", () => {
-        const loadingCircle = document.getElementById("loading-circle");
-        const content = document.querySelector(".container_universal_hidden");
-        const quoteEl = document.getElementById("quote");
-
-        // Instantly show content
-        if (loadingCircle) loadingCircle.classList.add("hidden");
-        if (content) content.classList.add("show");
-
-        // Quote setup
-        if (quoteEl) {
-          quoteEl.textContent =
-            quotes[Math.floor(Math.random() * quotes.length)];
-          quoteEl.classList.add("fade-in");
-          setInterval(showNextQuote, 3000);
-        }
+        requestAnimationFrame(() => {
+          setTimeout(() => {
+            const loadingCircle = document.getElementById("loading-circle");
+            const content = document.querySelector(
+              ".container_universal_hidden"
+            );
+            if (loadingCircle) loadingCircle.classList.add("hidden");
+            if (content) content.classList.add("show");
+          }, 200); 
+        });
       });
     </script>
   </body>
