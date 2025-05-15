@@ -63,29 +63,6 @@ document.getElementById("titleFont").addEventListener("change", (e) => {
   console.log("Selected Title Font →", selectedTitleFont);
 });
 
-let selectedCSS = "Styles/style.css";
-
-const defaultImg = Array.from(document.querySelectorAll(".bg-thumb")).find(
-  (img) => img.dataset.css === selectedCSS
-);
-
-if (defaultImg) {
-  defaultImg.classList.add("ring-2", "ring-blue-500");
-  console.log("Selected background →", selectedCSS);
-}
-
-document.querySelectorAll(".bg-thumb").forEach((img) => {
-  img.addEventListener("click", () => {
-    selectedCSS = img.dataset.css;
-    console.log("Selected background →", selectedCSS);
-
-    document.querySelectorAll(".bg-thumb").forEach((el) => {
-      el.classList.remove("ring-2", "ring-blue-500");
-    });
-    img.classList.add("ring-2", "ring-blue-500");
-  });
-});
-
 let useLoader = true;
 
 document.querySelectorAll('input[name="loaderOption"]').forEach((input) => {
@@ -95,6 +72,39 @@ document.querySelectorAll('input[name="loaderOption"]').forEach((input) => {
       "Loader setting →",
       useLoader ? "With Loader" : "Without Loader"
     );
+  });
+});
+
+// Global variables with default values
+let selectedImageSrc = "./Media/Background.webp";
+let selectedBgColor = "";
+
+// Apply default ring to the default image if it exists
+const defaultImg = Array.from(document.querySelectorAll(".bg-thumb")).find(
+  (img) => img.src.includes("Background.webp")
+);
+if (defaultImg) {
+  defaultImg.classList.add("ring-2", "ring-blue-500");
+  selectedBgColor = defaultImg.dataset.bgColor || "";
+}
+
+// Set up click listener
+document.querySelectorAll(".bg-thumb").forEach((img) => {
+  img.addEventListener("click", () => {
+    // Remove ring from all
+    document.querySelectorAll(".bg-thumb").forEach((el) => {
+      el.classList.remove("ring-2", "ring-blue-500");
+    });
+
+    // Add ring to clicked one
+    img.classList.add("ring-2", "ring-blue-500");
+
+    // Update global values
+    selectedImageSrc = img.src;
+    selectedBgColor = img.dataset.bgColor || "";
+
+    console.log("Selected Image Source:", selectedImageSrc);
+    console.log("Selected Background Color:", selectedBgColor);
   });
 });
 
@@ -716,8 +726,7 @@ form.addEventListener("submit", async function (e) {
     await Promise.all([
       fetch("template.html"),
       fetch("Thank you.html"),
-
-      fetch(selectedCSS),
+      fetch("Styles/style.css"),
       ...fontFiles.map((font) => fetch(font)),
     ]);
 
@@ -750,6 +759,8 @@ form.addEventListener("submit", async function (e) {
     .replace(/{{Random}}/g, getRandomMessage())
     .replace(/{{loader_code}}/g, setuploader())
     .replace(/{{TITLE_FONT}}/g, selectedTitleFont)
+    .replace(/{{bg_color}}/g, selectedBgColor)
+    .replace(/{{bg_file}}/g, selectedImageSrc)
     .replace(/{{after_footer}}/g, afterFooterDiv());
 
   let thanks = thankyou

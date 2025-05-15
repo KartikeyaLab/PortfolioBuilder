@@ -32,10 +32,8 @@
   font-weight: normal;
   font-style: normal;
 }
-:root {
-  --background-image-url: url("./Media/Background.webp");
-  --background-color: #10121b;
-}
+
+
 
 body {
   background-color: var(--background-color);
