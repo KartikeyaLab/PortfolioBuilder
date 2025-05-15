@@ -6,12 +6,32 @@
 }
 
 @font-face {
+  font-family: "TanBuster";
+  src: url("Font/TanBuster.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Apricot";
+  src: url("Font/Apricot.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Dream Avenue";
+  src: url("Font/Dream Avenue.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "TheSomething";
   src: url("Font/TheSomething.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
-
 h1,
 h2,
 h3 {

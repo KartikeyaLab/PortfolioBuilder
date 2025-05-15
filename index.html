@@ -149,6 +149,11 @@
         font-family: "Montserrat", sans-serif;
         background-color: #10121b;
       }
+
+      #socialFields {
+        margin-bottom: 10px;
+      }
+
       #bgPalette {
         margin-top: 20px;
       }
@@ -317,57 +322,74 @@
         display: none;
       }
 
-      /* Container styles for each checkbox */
-      .flex.flex-wrap > div {
+      .flex.flex-wrap {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+        justify-content: flex-start;
+      }
+
+      .flex.flex-wrap > label {
         display: flex;
         align-items: center;
-        background-color: #20222d;
-        padding: 10px 14px;
+        gap: 12px;
+        background-color: #1e1f2a;
+        padding: 12px 16px;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: background-color 0.25s ease, transform 0.2s ease,
+          box-shadow 0.3s ease;
+        box-shadow: 0 0 0 1px #2c2f3a;
+        flex: 1 1 160px;
+      }
+
+      .flex.flex-wrap > label:hover {
+        background-color: #2a2c39;
+        transform: scale(1.03);
+        box-shadow: 0 0 0 2px #3f4a6b;
+      }
+
+      label.role-label {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        background-color: #2a2c3b;
+        color: #ffffff;
+        padding: 12px 14px;
         border-radius: 8px;
-        margin: 6px;
         cursor: pointer;
         transition: background-color 0.3s ease, transform 0.2s ease;
-        flex: 1 1 150px;
-        gap: 12px;
+        flex-wrap: wrap;
+      }
+      label.role-label:hover {
+        background-color: #343648;
+        transform: scale(1.02);
       }
 
-      /* On hover */
-      .flex.flex-wrap > div:hover {
-        background-color: #1d1f28;
-        transform: scale(1.05);
-      }
-
-      /* Custom checkbox */
       .profession {
         appearance: none;
+        -webkit-appearance: none;
         width: 20px;
         height: 20px;
-        border: 2px solid #5555554b;
+        border: 2px solid #5c5f70;
         border-radius: 4px;
-        background-color: #20222d;
+        background-color: #292a33;
         position: relative;
         cursor: pointer;
-        flex-shrink: 0;
-        transition: border-color 0.3s ease, background-color 0.3s ease;
+        transition: all 0.2s ease-in-out;
       }
-
-      /* Hover effect */
       .profession:hover {
-        border-color: #4a4a4aad;
+        border-color: #7d81a1;
       }
-
-      /* Checked style */
       .profession:checked {
         background-color: #4263a4;
         border-color: #4263a4;
       }
-
-      /* Checkmark */
       .profession:checked::after {
         content: "";
         position: absolute;
-        left: 6px;
-        top: 3px;
+        left: 5px;
+        top: 2px;
         width: 6px;
         height: 12px;
         border: solid white;
@@ -375,15 +397,38 @@
         transform: rotate(45deg);
       }
 
-      /* Responsive wrapping */
-      .flex.flex-wrap {
-        gap: 10px;
-        justify-content: flex-start;
+      .other-input {
+        flex: 1;
+        min-width: 200px;
+        padding: 8px 12px;
+        background-color: #1e1f2a;
+        border: 1px solid #444;
+        color: white;
+        border-radius: 6px;
+        font-size: 14px;
+      }
+      .other-input::placeholder {
+        color: #999;
+        font-style: italic;
+      }
+
+      .add-btn {
+        padding: 8px 12px;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        font-size: 14px;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
       }
 
       .publish_image {
         border-radius: 15px;
         margin: 18px 0;
+      }
+
+      #fontPreview {
+        transition: font 0.3s ease, color 0.3s ease, opacity 0.3s ease;
       }
     </style>
   </head>
@@ -490,7 +535,7 @@
           <input
             type="text"
             id="first_name"
-            placeholder="Your first name"
+            placeholder="What do your friends call you?"
             class="w-full px-4 py-3 dark_background rounded-lg border border-zinc-700 text-white placeholder:text-zinc-400 placeholder:text-sm placeholder:italic focus:ring-2 focus:ring-blue-500 focus:outline-none"
             required
           />
@@ -503,7 +548,7 @@
           <input
             type="text"
             id="last_name"
-            placeholder="Your last name (Optional)"
+            placeholder="Your legacy name goes here (Optional)"
             class="w-full px-4 py-3 dark_background rounded-lg border border-zinc-700 text-white placeholder:text-zinc-400 placeholder:text-sm placeholder:italic focus:ring-2 focus:ring-blue-500 focus:outline-none"
           />
 
@@ -515,7 +560,7 @@
           <input
             type="email"
             id="email"
-            placeholder="Email address"
+            placeholder="Where can the world reach you?"
             class="w-full px-4 py-3 dark_background rounded-lg border border-zinc-700 text-white placeholder:text-zinc-400 placeholder:text-sm placeholder:italic focus:ring-2 focus:ring-blue-500 focus:outline-none"
             required
           />
@@ -528,7 +573,7 @@
           <input
             type="text"
             id="tagline"
-            placeholder="Enter Your Tagline"
+            placeholder="Your vibe in five words"
             class="w-full px-4 py-3 dark_background rounded-lg border border-zinc-700 text-white placeholder:text-zinc-400 placeholder:text-sm placeholder:italic focus:ring-2 focus:ring-blue-500 focus:outline-none"
             required
           />
@@ -541,147 +586,198 @@
 
           <textarea
             id="aboutSection"
-            placeholder="About You..."
+            placeholder="So, Who Are You Really?"
             rows="4"
             class="w-full px-4 py-3 dark_background rounded-lg border border-zinc-700 text-white placeholder:text-zinc-400 placeholder:text-sm placeholder:italic focus:ring-2 focus:ring-blue-500 focus:outline-none"
             required
           ></textarea>
 
-          <!-- Professional and Hobby Roles Selection -->
-          <div class="space-y-2">
-            <label class="block text-sm mb-1 text-zinc-400 mt-4 md:mt-6"
-              >Select Your Profession(s) or Hobby(s) (2-4 roles):</label
+          <!-- Profession & Hobby Selection -->
+          <div class="mt-4 md:mt-6">
+            <label
+              for="professions"
+              class="block text-sm font-medium text-zinc-400 mb-2"
             >
-            <div class="flex flex-wrap space-x-4">
-              <div>
-                <input type="checkbox" id="developer" class="profession" />
-                Developer
-              </div>
-              <div>
-                <input type="checkbox" id="typist" class="profession" />
-                Typist
-              </div>
-              <div>
-                <input type="checkbox" id="editor" class="profession" /> Editor
-              </div>
-              <div>
-                <input type="checkbox" id="writer" class="profession" /> Writer
-              </div>
+              Select Your Profession(s) or Hobby(s) (2–4 roles):
+            </label>
 
-              <div>
-                <input type="checkbox" id="musician" class="profession" />
-                Musician
-              </div>
+            <div
+              id="professions"
+              class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 text-sm text-zinc-200"
+            >
+              <!-- Static roles (same as yours)... -->
+              <label class="flex role-label items-center">
+                <input
+                  type="checkbox"
+                  class="profession text-blue-500"
+                  id="developer"
+                />
+                <span>Developer</span>
+              </label>
 
-              <div>
-                <input type="checkbox" id="entrepreneur" class="profession" />
-                Entrepreneur
-              </div>
-              <div>
-                <input type="checkbox" id="researcher" class="profession" />
-                Researcher
-              </div>
-              <div>
-                <input type="checkbox" id="artist" class="profession" /> Artist
-              </div>
-              <div>
-                <input type="checkbox" id="painter" class="profession" />
-                Painter
-              </div>
-              <div>
-                <input type="checkbox" id="coder" class="profession" /> Coder
-              </div>
+              <label class="flex role-label items-center">
+                <input
+                  type="checkbox"
+                  class="profession text-blue-500"
+                  id="designer"
+                />
+                <span>Designer</span>
+              </label>
 
-              <div>
-                <input type="checkbox" id="dancer" class="profession" /> Dancer
-              </div>
-              <div>
-                <input type="checkbox" id="poet" class="profession" /> Poet
-              </div>
-              <div>
-                <input type="checkbox" id="baker" class="profession" /> Baker
-              </div>
-              <div>
-                <input type="checkbox" id="calligrapher" class="profession" />
-                Calligrapher
-              </div>
-              <div>
-                <input type="checkbox" id="chef" class="profession" /> Chef
-              </div>
-              <div>
-                <input type="checkbox" id="gardener" class="profession" />
-                Gardener
-              </div>
-              <div>
-                <input type="checkbox" id="guitarist" class="profession" />
-                Guitarist
-              </div>
-              <div>
-                <input type="checkbox" id="singer" class="profession" /> Singer
-              </div>
-              <div>
-                <input type="checkbox" id="blogger" class="profession" />
-                Blogger
-              </div>
-              <div>
-                <input type="checkbox" id="traveler" class="profession" />
-                Traveler
-              </div>
-              <div>
-                <input type="checkbox" id="youtuber" class="profession" />
-                YouTuber
-              </div>
-              <div>
-                <input type="checkbox" id="designer" class="profession" />
-                Designer
-              </div>
+              <label class="flex role-label items-center">
+                <input
+                  type="checkbox"
+                  class="profession text-blue-500"
+                  id="writer"
+                />
+                <span>Writer</span>
+              </label>
 
-              <div>
-                <input type="checkbox" id="runner" class="profession" /> Runner
-              </div>
-              <div>
-                <input type="checkbox" id="swimmer" class="profession" />
-                Swimmer
-              </div>
+              <label class="flex role-label items-center">
+                <input
+                  type="checkbox"
+                  class="profession text-blue-500"
+                  id="photographer"
+                />
+                <span>Photographer</span>
+              </label>
 
-              <div>
-                <input type="checkbox" id="cyclist" class="profession" />
-                Cyclist
-              </div>
-              <div>
-                <input type="checkbox" id="photographer" class="profession" />
-                Photographer
-              </div>
-              <div>
-                <input type="checkbox" id="videographer" class="profession" />
-                Videographer
-              </div>
-              <div>
-                <input type="checkbox" id="gamer" class="profession" /> Gamer
-              </div>
-              <div>
-                <input type="checkbox" id="diy" class="profession" /> DIY
-                Enthusiast
-              </div>
+              <label class="flex role-label items-center">
+                <input
+                  type="checkbox"
+                  class="profession text-blue-500"
+                  id="musician"
+                />
+                <span>Musician</span>
+              </label>
+
+              <label class="flex role-label items-center">
+                <input
+                  type="checkbox"
+                  class="profession text-blue-500"
+                  id="editor"
+                />
+                <span>Editor</span>
+              </label>
+
+              <label class="flex role-label items-center">
+                <input
+                  type="checkbox"
+                  class="profession text-blue-500"
+                  id="videographer"
+                />
+                <span>Videographer</span>
+              </label>
+
+              <label class="flex role-label items-center">
+                <input
+                  type="checkbox"
+                  class="profession text-blue-500"
+                  id="illustrator"
+                />
+                <span>Illustrator</span>
+              </label>
+
+              <label class="flex role-label items-center">
+                <input
+                  type="checkbox"
+                  class="profession text-blue-500"
+                  id="animator"
+                />
+                <span>Animator</span>
+              </label>
+
+              <label class="flex role-label items-center">
+                <input
+                  type="checkbox"
+                  class="profession text-blue-500"
+                  id="content-creator"
+                />
+                <span>Content Creator</span>
+              </label>
+
+              <label class="flex role-label items-center">
+                <input
+                  type="checkbox"
+                  class="profession text-blue-500"
+                  id="artist"
+                />
+                <span>Artist</span>
+              </label>
+
+              <label class="flex role-label items-center">
+                <input
+                  type="checkbox"
+                  class="profession text-blue-500"
+                  id="coder"
+                />
+                <span>Coder</span>
+              </label>
+
+              <label class="flex role-label items-center">
+                <input
+                  type="checkbox"
+                  class="profession text-blue-500"
+                  id="youtuber"
+                />
+                <span>YouTuber</span>
+              </label>
+
+              <label class="flex role-label items-center">
+                <input
+                  type="checkbox"
+                  class="profession text-blue-500"
+                  id="traveler"
+                />
+                <span>Traveler</span>
+              </label>
+
+              <label class="flex role-label items-center">
+                <input
+                  type="checkbox"
+                  class="profession text-blue-500"
+                  id="teacher"
+                />
+                <span>Teacher</span>
+              </label>
+
+              <label class="flex role-label items-center">
+                <input
+                  type="checkbox"
+                  class="profession text-blue-500"
+                  id="student"
+                />
+                <span>Student</span>
+              </label>
+              <!-- Add others similarly -->
             </div>
-            <span id="roleError" class="text-red-500 hidden"
-              >Please select at least 2 and at most 4 roles.</span
-            >
+
+            <span id="roleError" class="text-red-500 text-sm hidden">
+              Please select between 2 and 4 roles.
+            </span>
+
+            <label for="otherCheckbox" class="role-label mt-3 w-full">
+              <input type="checkbox" id="otherCheckbox" class="profession" />
+              <span>Other:</span>
+
+              <input
+                type="text"
+                id="otherProfession"
+                class="other-input hidden"
+                placeholder="Enter your custom role"
+                disabled
+              />
+
+              <button
+                id="addProfessionBtn"
+                class="add-btn button_background hidden"
+              >
+                Add
+              </button>
+            </label>
           </div>
 
-          <div class="flex items-center space-x-2 mt-2">
-            <input type="checkbox" id="otherCheckbox" class="profession" />
-            <label for="otherCheckbox">Other:</label>
-            <input
-              type="text"
-              id="otherProfession"
-              class="w-full px-4 py-3 dark_background rounded-lg border border-zinc-700 text-white placeholder:text-zinc-400 placeholder:text-sm placeholder:italic focus:ring-2 focus:ring-blue-500 focus:outline-none hidden"
-              placeholder="Enter your profession"
-              disabled
-            />
-          </div>
-
-          <div class="space-y-6">
+          <div>
             <label
               for="socialPlatform"
               class="block text-sm mb-1 text-zinc-400 mt-4 md:mt-6"
@@ -734,7 +830,7 @@
                 <input
                   type="url"
                   id="socialURL"
-                  placeholder="https://yourprofile.com"
+                  placeholder="Where can we stalk your brilliance?"
                   class="w-full px-4 py-3 dark_background rounded-lg border border-zinc-700 text-white placeholder:text-zinc-400 placeholder:text-sm placeholder:italic focus:ring-2 focus:ring-blue-500 focus:outline-none"
                   aria-label="Enter your social media URL"
                 />
@@ -893,11 +989,18 @@
             <option value="'TanBuster">Tan Buster</option>
           </select>
 
+          <p
+            id="fontPreview"
+            class="mt-4 text-white text-xl transition-all duration-300"
+          >
+            This is a font preview.
+          </p>
+
           <label
             for="faviconFile"
             class="block text-sm mb-1 text-zinc-400 mt-4 md:mt-6"
           >
-            Upload Favicon:
+            Upload Favicon (Website Logo):
           </label>
 
           <div class="relative">
@@ -1105,7 +1208,7 @@
             browser — that’s your live portfolio!
           </div>
 
-          <div>
+          <!-- <div>
             <strong class="text-white"
               >Want to Publish It Online for Free?</strong
             ><br />
@@ -1116,68 +1219,7 @@
               class="underline hover:text-white"
               >GitHub Pages</a
             >. Here’s how:
-          </div>
-
-          <div>
-            <strong class="text-white">3. Create a GitHub Account</strong><br />
-            Sign up at
-            <a
-              href="https://github.com"
-              target="_blank"
-              class="underline hover:text-white"
-              >github.com</a
-            >
-            if you don’t have one already.
-          </div>
-
-          <div>
-            <strong class="text-white">4. Create a New Repository</strong><br />
-            - Go to your GitHub dashboard<br />
-            - Click <em>"New Repository"</em><br />
-            <img class="publish_image" src="Publish/1.png" alt="" />
-
-            - Name it (e.g., <code>my-portfolio</code>) and set it to public<br />
-            <img class="publish_image" src="Publish/2.png" alt="" />
-            <img class="publish_image" src="Publish/3.png" alt="" />
-
-            - Click <em>"Create repository"</em>
-            <img class="publish_image" src="Publish/4.png" alt="" />
-          </div>
-
-          <div>
-            <strong class="text-white">5. Upload Your Files</strong><br />
-            Drag and drop the contents of the unzipped folder (not the folder
-            itself) into the repo and commit the changes.
-            <img class="publish_image" src="Publish/5.png" alt="" />
-            <img class="publish_image" src="Publish/6.png" alt="" />
-          </div>
-
-          <div>
-            <strong class="text-white">6. Enable GitHub Pages</strong><br />
-            - Go to <em>Settings > Pages</em><br />
-            <img class="publish_image" src="Publish/7.png" alt="" />
-            <img class="publish_image" src="Publish/8.png" alt="" />
-            - Under <em>"Source"</em>, select <code>Gihub Actions</code> then
-            click Configure.
-            <img class="publish_image" src="Publish/9.png" alt="" />
-            <img class="publish_image" src="Publish/10.png" alt="" />
-
-            - Then click <em>"Commit Changes.."</em>, then
-            <code>Commit Changes.</code>
-            <img class="publish_image" src="Publish/11.png" alt="" />
-            - Now click <em>"Settings"</em>, then
-            <code>Pages.</code>
-            <img class="publish_image" src="Publish/12.png" alt="" />
-            - GitHub will give you a public URL like:<br />
-            <code>https://yourusername.github.io/my-portfolio</code>
-            <img class="publish_image" src="Publish/13.png" alt="" />
-          </div>
-
-          <div>
-            <strong class="text-white">You’re Live!</strong><br />
-            Share your link and let the world see what you’ve built. And
-            remember — you can return anytime to update or improve your site.
-          </div>
+          </div> -->
         </div>
       </section>
 
@@ -1281,7 +1323,72 @@
         </div>
       </footer>
     </div>
+
+    <!-- Image Preview Modal (Below 80px Navbar) -->
+    <div
+      id="imageModal"
+      class="fixed top-[80px] bottom-0 left-0 right-0 bg-black bg-opacity-60 backdrop-blur-sm flex items-center justify-center hidden z-40"
+    >
+      <div
+        id="modalContent"
+        class="relative transform scale-90 opacity-0 transition-all duration-300 ease-out"
+      >
+        <img
+          id="modalImage"
+          src=""
+          class="max-w-[90vw] max-h-[75vh] rounded-2xl shadow-2xl border border-white/10"
+        />
+
+        <!-- Close Button -->
+        <button
+          onclick="closeModal()"
+          class="absolute top-2 right-2 bg-white/10 hover:bg-white/20 text-white rounded-full p-1.5 transition-all duration-200"
+          title="Close"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="w-5 h-5"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+
     <script>
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImage");
+      const modalContent = document.getElementById("modalContent");
+
+      document.querySelectorAll(".bg-thumb").forEach((img) => {
+        img.addEventListener("click", () => {
+          modalImg.src = img.src;
+          modal.classList.remove("hidden");
+          setTimeout(() => {
+            modalContent.classList.remove("scale-90", "opacity-0");
+            modalContent.classList.add("scale-100", "opacity-100");
+          }, 10);
+        });
+      });
+
+      function closeModal() {
+        modalContent.classList.remove("scale-100", "opacity-100");
+        modalContent.classList.add("scale-90", "opacity-0");
+        setTimeout(() => modal.classList.add("hidden"), 300);
+      }
+
+      modal.addEventListener("click", (e) => {
+        if (e.target.id === "imageModal") closeModal();
+      });
+
       const zip = new JSZip();
       let faviconBlob = null;
 
@@ -1418,9 +1525,168 @@
             );
             if (loadingCircle) loadingCircle.classList.add("hidden");
             if (content) content.classList.add("show");
-          }, 200); 
+          }, 200);
         });
       });
+    </script>
+
+    <script>
+      const container = document.getElementById("professions");
+      const roleError = document.getElementById("roleError");
+      const otherCheckbox = document.getElementById("otherCheckbox");
+      const otherProfession = document.getElementById("otherProfession");
+      const addButton = document.getElementById("addProfessionBtn");
+
+      let userInteracted = false;
+
+      const getProfessionCheckboxes = () =>
+        Array.from(document.querySelectorAll(".profession")).filter(
+          (cb) => cb.id !== "otherCheckbox"
+        );
+
+      const getSelectedCount = () =>
+        getProfessionCheckboxes().filter((cb) => cb.checked).length;
+
+      const showError = (message) => {
+        roleError.textContent = message;
+        roleError.classList.remove("hidden");
+      };
+
+      const clearError = () => {
+        roleError.textContent = "";
+        roleError.classList.add("hidden");
+      };
+
+      const validateSelection = () => {
+        if (!userInteracted) return;
+
+        const count = getSelectedCount();
+        if (count < 2) {
+          showError("Please select at least 2 roles.");
+        } else if (count > 4) {
+          showError("You can select a maximum of 4 roles.");
+        } else {
+          clearError();
+        }
+      };
+
+      const handleCheckboxChange = (e) => {
+        userInteracted = true;
+
+        const selected = getSelectedCount();
+        if (selected > 4) {
+          e.target.checked = false;
+        }
+
+        validateSelection();
+      };
+
+      container.addEventListener("change", (e) => {
+        if (
+          e.target.classList.contains("profession") &&
+          e.target.id !== "otherCheckbox"
+        ) {
+          handleCheckboxChange(e);
+        }
+      });
+
+      otherCheckbox.addEventListener("change", () => {
+        const checked = otherCheckbox.checked;
+        otherProfession.classList.toggle("hidden", !checked);
+        addButton.classList.toggle("hidden", !checked);
+        otherProfession.disabled = !checked;
+
+        if (!checked) {
+          otherProfession.value = "";
+          container
+            .querySelectorAll("label[data-custom]")
+            .forEach((label) => label.remove());
+          validateSelection();
+        }
+      });
+
+      otherProfession.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+          e.preventDefault();
+          addCustomRole();
+        }
+      });
+
+      if (addButton) {
+        addButton.addEventListener("click", (e) => {
+          e.preventDefault();
+          addCustomRole();
+        });
+      }
+
+      function addCustomRole() {
+        const val = otherProfession.value.trim();
+        if (!val) return;
+
+        userInteracted = true;
+
+        const exists = [...container.querySelectorAll("label span")].some(
+          (el) => el.textContent.trim().toLowerCase() === val.toLowerCase()
+        );
+        if (exists) {
+          showError("This role already exists.");
+          return;
+        }
+
+        if (getSelectedCount() >= 4) {
+          showError("You can select a maximum of 4 roles.");
+          return;
+        }
+
+        const id = `custom-${Date.now()}`;
+        const label = document.createElement("label");
+        label.className = "flex items-center";
+        label.setAttribute("data-custom", "true");
+
+        const input = document.createElement("input");
+        input.type = "checkbox";
+        input.id = id;
+        input.className = "profession text-blue-500";
+        input.checked = true;
+
+        input.addEventListener("change", handleCheckboxChange);
+
+        const span = document.createElement("span");
+        span.textContent = val;
+
+        label.appendChild(input);
+        label.appendChild(span);
+        container.appendChild(label);
+
+        otherProfession.value = "";
+        validateSelection();
+      }
+
+      // Init
+      clearError();
+      otherProfession.classList.add("hidden");
+      addButton.classList.add("hidden");
+      otherProfession.disabled = true;
+
+      const fontSelect = document.getElementById("titleFont");
+      const preview = document.getElementById("fontPreview");
+
+      function updateFont() {
+        let rawValue = fontSelect.value.trim().replace(/^['"]+|['"]+$/g, "");
+        const fontName = rawValue;
+
+        // Fade out
+        preview.style.opacity = 0;
+
+        // Wait for fade out, then change font and fade in
+        setTimeout(() => {
+          preview.style.fontFamily = `'${fontName}'`;
+          preview.style.opacity = 1;
+        }, 150);
+      }
+
+      fontSelect.addEventListener("change", updateFont);
+      window.addEventListener("DOMContentLoaded", updateFont);
     </script>
   </body>
 </html>

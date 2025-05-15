@@ -524,7 +524,7 @@ document.getElementById("addSocialBtn").addEventListener("click", () => {
     title="${title}"
     class="group relative w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-white/5 border border-white/20 backdrop-blur-md shadow hover:shadow-lg transition-all duration-300 hover:scale-110 hover:border-white/30"
   >
-    <div class="absolute inset-0 rounded-full bg-white/10 opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+    <div class="absolute inset-0 rounded-full bg-white/10 duration-300"></div>
     <i class="${icon} text-white text-lg md:text-xl z-10 transition-transform duration-300 group-hover:scale-110"></i>
   </a>`;
 
@@ -534,7 +534,7 @@ document.getElementById("addSocialBtn").addEventListener("click", () => {
   const removeBtn = document.createElement("button");
   removeBtn.innerHTML = "&times;";
   removeBtn.className =
-    "absolute -top-2 -right-2 bg-red-600 text-white w-5 h-5 text-xs rounded-full hover:bg-red-700 transition-opacity opacity-0 group-hover:opacity-100";
+    "absolute -top-2 -right-2 bg-red-600 text-white w-5 h-5 text-xs rounded-full hover:bg-red-700 ";
   removeBtn.title = "Remove";
   removeBtn.addEventListener("click", () => {
     field.remove();
@@ -658,17 +658,11 @@ function generateNavLinksHTML() {
   return navLinksHTML ? `\n${navLinksHTML}\n` : "";
 }
 const form = document.getElementById("siteForm");
-const professionCheckboxes = document.querySelectorAll(".profession");
-const roleError = document.getElementById("roleError");
 const submitBtn = document.getElementById("submitBtn");
 const btnText = document.getElementById("btnText");
 const loader = document.getElementById("loader");
-const otherCheckbox = document.getElementById("otherCheckbox");
 const tagline = document.getElementById("tagline");
 const tagline_value = tagline.value;
-
-const otherProfession = document.getElementById("otherProfession");
-const container = document.querySelector(".flex.flex-wrap.space-x-4");
 
 form.addEventListener("submit", async function (e) {
   e.preventDefault();
@@ -736,7 +730,7 @@ form.addEventListener("submit", async function (e) {
     ]);
 
   let html = htmlTemplate
-    .replace(/{{TITLE}}/g, fullName)
+    .replace(/{{TITLE}}/g, first_name)
     .replace(/{{Email}}/g, email)
     .replace(/{{ABOUT}}/g, about)
     .replace(/{{ABOUTFOOTER}}/g, about)
@@ -759,7 +753,7 @@ form.addEventListener("submit", async function (e) {
     .replace(/{{after_footer}}/g, afterFooterDiv());
 
   let thanks = thankyou
-    .replace(/{{TITLE}}/g, fullName)
+    .replace(/{{TITLE}}/g, first_name)
     .replace(/{{TITLE_FONT}}/g, selectedTitleFont);
 
   const zip = new JSZip();
@@ -811,48 +805,6 @@ form.addEventListener("submit", async function (e) {
     a.href = URL.createObjectURL(content);
     a.download = "Crafted for " + first_name + ".zip";
     a.click();
-  });
-});
-
-otherCheckbox.addEventListener("change", () => {
-  if (otherCheckbox.checked) {
-    otherProfession.classList.remove("hidden");
-    otherProfession.disabled = false;
-
-    otherProfession.addEventListener("keydown", (e) => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        const val = otherProfession.value.trim();
-        if (val !== "") {
-          const id = "custom-" + Date.now();
-          const wrapper = document.createElement("div");
-          wrapper.innerHTML = `
-              <input type="checkbox" id="${id}" class="profession" checked />
-              <label for="${id}">${val}</label>
-            `;
-          container.appendChild(wrapper);
-          otherProfession.value = "";
-        }
-      }
-    });
-  } else {
-    otherProfession.classList.add("hidden");
-    otherProfession.disabled = true;
-    otherProfession.value = "";
-    container.querySelectorAll("[id^='custom-']").forEach((input) => {
-      input.parentElement.remove();
-    });
-  }
-});
-
-professionCheckboxes.forEach((checkbox) => {
-  checkbox.addEventListener("change", () => {
-    const selectedRoles = Array.from(professionCheckboxes).filter(
-      (input) => input.checked
-    );
-    if (selectedRoles.length > 4) {
-      checkbox.checked = false;
-    }
   });
 });
 
