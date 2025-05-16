@@ -718,8 +718,9 @@ form.addEventListener("submit", async function (e) {
     "Font/Bethasia.otf",
     "Font/TheSomething.otf",
     "Font/Apricot.otf",
-    "Font/Dream Avenue.ttf",
+    "Font/Dream Avenue.ttf", 
     "Font/TanBuster.otf",
+    "Font/Harry Potter.otf",
   ];
 
   const [templateRes, templateRes1, cssRes, ...fontResArray] =
