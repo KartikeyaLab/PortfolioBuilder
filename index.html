@@ -1153,10 +1153,41 @@
           </div>
 
           <div id="faviconFields" class="mt-2"></div>
-          <p id="faviconHelp" class="text-xs text-zinc-500 mt-1">
-            Supported file formats: PNG, JPG.
-            <span class="font-medium">Recommended size: 32x32px</span>.
-          </p>
+
+          <label
+            for="loaderOption"
+            class="block text-sm font-medium text-zinc-400 mt-6"
+          >
+            Select Loader:
+          </label>
+          <div class="flex items-center gap-6 mt-4">
+            <label
+              class="flex items-center gap-2 cursor-pointer text-sm text-zinc-300"
+            >
+              <input
+                type="radio"
+                name="loaderOption"
+                value="with"
+                checked
+                class="accent-zinc-500"
+              />
+              <span
+                >With Loader
+                <span class="text-zinc-500">(Recommended)</span></span
+              >
+            </label>
+            <label
+              class="flex items-center gap-2 cursor-pointer text-sm text-zinc-300"
+            >
+              <input
+                type="radio"
+                name="loaderOption"
+                value="without"
+                class="accent-zinc-500"
+              />
+              <span>Without Loader</span>
+            </label>
+          </div>
 
           <label
             for="faviconFile"
@@ -1263,41 +1294,6 @@
               </div>
             </div>
             <div class="content-area"></div>
-          </div>
-
-          <label
-            for="loaderOption"
-            class="block text-sm font-medium text-zinc-400 mt-6"
-          >
-            Preview
-          </label>
-          <div class="flex items-center gap-6 mt-4">
-            <label
-              class="flex items-center gap-2 cursor-pointer text-sm text-zinc-300"
-            >
-              <input
-                type="radio"
-                name="loaderOption"
-                value="with"
-                checked
-                class="accent-zinc-500"
-              />
-              <span
-                >With Loader
-                <span class="text-zinc-500">(Recommended)</span></span
-              >
-            </label>
-            <label
-              class="flex items-center gap-2 cursor-pointer text-sm text-zinc-300"
-            >
-              <input
-                type="radio"
-                name="loaderOption"
-                value="without"
-                class="accent-zinc-500"
-              />
-              <span>Without Loader</span>
-            </label>
           </div>
 
           <button
