@@ -15,7 +15,6 @@
 * **Responsive Design:** Your portfolio will look great on any device, from desktops to mobile phones.
 * **No Coding Required (Mostly!):** Focus on your content, not complex development.
 * **Powered by Tailwind CSS:** Benefit from a modern and responsive design framework.
-* **Lottie Animations:** Subtle and engaging animations to enhance user experience.
 * **Font Awesome Icons:** Access a wide range of icons for your social media links and more.
 
 ## 🚀 Get Started
@@ -56,21 +55,9 @@ Ready to build your amazing portfolio? Follow these simple steps:
 * **CSS:** Styling and layout using custom CSS and Tailwind CSS.
 * **JavaScript:** For interactive elements, form handling, and website generation.
 * **Tailwind CSS:** A utility-first CSS framework for rapid UI development.
-* **Lottie Files:** For lightweight and scalable vector animations.
 * **Font Awesome:** For a comprehensive icon library.
 * **jszip:** A JavaScript library for creating, reading, and editing ZIP files.
 * **Google Fonts:** For a wide selection of web fonts.
-
-## 📂 Project Structure
-
-portfolio-builder/
-├── Favicon/             # Favicon images for different platforms
-├── Media/               # Background preset images
-├── script.js            # JavaScript logic for the builder
-├── style.css            # Custom CSS styles
-├── index.html           # The main HTML structure and builder UI
-└── README.md            # This file
-
 
 ## 🤝 Contributing
 
