@@ -21,15 +21,9 @@
 
 Ready to build your amazing portfolio? Follow these simple steps:
 
-1.  **Clone the Repository (Optional):** If you want to host this project yourself, you can clone this repository to your local machine:
-    ```bash
-    git clone [https://github.com/KartikeyaLab/portfolio-builder.git](https://github.com/KartikeyaLab/portfolio-builder.git)
-    cd portfolio-builder
-    ```
+1.  **Open [Website](https://kartikeyalab.github.io/PortfolioBuilder/). This is the user interface for the Portfolio Builder.
 
-2.  **Open `index.html`:** Simply open the `index.html` file in your web browser. This is the user interface for the Portfolio Builder.
-
-3.  **Fill in Your Information:** Use the provided form to input your:
+2.  **Fill in Your Information:** Use the provided form to input your:
     * First Name
     * Last Name (Optional)
     * Email Address
@@ -39,15 +33,11 @@ Ready to build your amazing portfolio? Follow these simple steps:
     * Add links to your social media profiles.
     * Choose a background preset that resonates with your style.
 
-4.  **Customize (Further):**
-    * **Fonts:** While the initial setup uses the "Montserrat" font, you can easily explore and integrate other Google Fonts by modifying the `<link>` tag in the `<head>` section of `index.html` and updating the CSS rules in `style.css`.
-    * **Styling:** For more advanced customization, you can edit the `style.css` file to tweak colors, layouts, and other visual aspects. Tailwind CSS classes are also extensively used within the `index.html` for rapid styling.
+3.  **Generate Your Portfolio:** Once you've filled in all your details and chosen your preferences, click the "Generate Portfolio" button (this functionality is within the `script.js` file and will create a downloadable ZIP file).
 
-5.  **Generate Your Portfolio:** Once you've filled in all your details and chosen your preferences, click the "Generate Portfolio" button (this functionality is within the `script.js` file and will create a downloadable ZIP file).
+4.  **Download Your Website:** A ZIP file containing your personalized portfolio website (an `index.html` file and an `assets` folder with necessary files) will be downloaded to your computer.
 
-6.  **Download Your Website:** A ZIP file containing your personalized portfolio website (an `index.html` file and an `assets` folder with necessary files) will be downloaded to your computer.
-
-7.  **Deploy Your Portfolio:** You can now deploy the contents of this ZIP file to any static website hosting provider (e.g., Netlify, Vercel, GitHub Pages).
+5.  **Deploy Your Portfolio:** You can now deploy the contents of this ZIP file to any static website hosting provider (e.g., Netlify, Vercel, GitHub Pages).
 
 ## 🛠️ Technologies Used
 
