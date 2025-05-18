@@ -72,4 +72,4 @@ I am a developer with a passion for creating helpful and innovative solutions. P
   * **GitHub:** [KartikeyaLab on GitHub](https://github.com/KartikeyaLab)
   * **Monkeytype:** [Kartikeya's Monkeytype Profile](https://monkeytype.com/profile/Karitkeya)
   * **YouTube Channel:** [My YouTube Channel](https://www.youtube.com/@clever-ways)
-  * **Product Portfolio Builder:** [Portfolio Builder (Free)](https://kartikeyalab.github.io/PortfolioBuilder/)
+  * **Portfolio Builder:** [Portfolio Builder (Free)](https://kartikeyalab.github.io/PortfolioBuilder/)
