@@ -4,7 +4,7 @@
 [![Maintenance](https://img.shields.io/badge/Maintained%3F-yes-green.svg)](https://github.com/KartikeyaLab/portfolio-builder/graphs/commit-activity)
 [![Open Source Love](https://badges.frapsoft.com/os/v1/open-source.svg?v=103)](https://github.com/KartikeyaLab/portfolio-builder)
 
-**Create your stunning portfolio website in minutes with Portfolio Builder!** This static website project offers an intuitive way to build your personalized online presence. Showcase your skills, connect your social media, and enable visitors to reach out through a functional contact page – all without the complexities of coding.
+**Create your stunning portfolio website in seconds with Portfolio Builder!** This static website project offers an intuitive way to build your personalized online presence. Showcase your skills, connect your social media, and enable visitors to reach out through a functional contact page – all without the complexities of coding.
 
 ## ✨ Key Features
 
