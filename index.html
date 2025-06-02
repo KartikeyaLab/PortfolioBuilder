@@ -7,7 +7,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.0/jszip.min.js"></script>
@@ -163,7 +163,7 @@
       @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
       body {
         font-family: "Montserrat", sans-serif;
-        background-color: #10121b;
+        background-color: #090909;
       }
 
       #socialFields {
@@ -446,370 +446,897 @@
       #fontPreview {
         transition: font 0.3s ease, color 0.3s ease, opacity 0.3s ease;
       }
+
+      .top_margin {
+        margin-top: 15px;
+      }
     </style>
   </head>
   <body class="text-white">
-    <div id="loading-circle" class="loading-circle">
-      <div class="spinner"></div>
-      <div id="loading-circle">
-        <div class="spinner"></div>
-        <div id="quote" class="quote-text"></div>
-      </div>
-    </div>
+    <nav>
+      <div class="wrapper">
+        <div class="logo">
+          <a href="https://kartikeyalab.github.io/kartikeya/">Kartikeya</a>
+        </div>
 
-    <div class="container_universal_hidden">
-      <nav>
-        <div class="wrapper">
-          <div class="logo">
-            <a href="https://kartikeyalab.github.io/kartikeya/">Kartikeya</a>
-          </div>
-
-          <input type="radio" name="slider" id="menu-btn" />
-          <input type="radio" name="slider" id="close-btn" />
-          <ul class="nav-links">
-            <label for="close-btn" class="btn close-btn">
-              <i class="fas fa-times"></i>
-            </label>
-            <li><a href="#" class="nav-link">Home</a></li>
-            <li>
-              <a href="https://github.com/KartikeyaLab" target="_blank"
-                >Github</a
-              >
-            </li>
-            <li>
-              <a href="https://www.youtube.com/@clever-ways" target="_blank"
-                >Youtube</a
-              >
-            </li>
-            <li>
-              <a href="https://monkeytype.com/profile/Karitkeya" target="_blank"
-                >Monkeytype</a
-              >
-            </li>
-
-            <li class="search_botton">
-              <a href="#message_for_you">
-                <i class="fa-solid fa-heart"></i>
-              </a>
-            </li>
-          </ul>
-
-          <label for="menu-btn" class="btn menu-btn">
-            <i class="fas fa-bars"></i>
+        <input type="radio" name="slider" id="menu-btn" />
+        <input type="radio" name="slider" id="close-btn" />
+        <ul class="nav-links">
+          <label for="close-btn" class="btn close-btn">
+            <i class="fas fa-times"></i>
           </label>
-        </div>
-      </nav>
+          <li><a href="#" class="nav-link">Home</a></li>
+          <li>
+            <a href="https://github.com/KartikeyaLab" target="_blank">Github</a>
+          </li>
+          <li>
+            <a href="https://www.youtube.com/@clever-ways" target="_blank"
+              >Youtube</a
+            >
+          </li>
+          <li>
+            <a href="https://monkeytype.com/profile/Karitkeya" target="_blank"
+              >Monkeytype</a
+            >
+          </li>
 
-      <section
-        class="flex-grow flex flex-col justify-center items-center text-center px-6 header"
+          <li class="search_botton">
+            <a href="#message_for_you">
+              <i class="fa-solid fa-heart"></i>
+            </a>
+          </li>
+        </ul>
+
+        <label for="menu-btn" class="btn menu-btn">
+          <i class="fas fa-bars"></i>
+        </label>
+      </div>
+    </nav>
+
+    <section
+      class="flex-grow flex flex-col justify-center items-center text-center px-6 header"
+    >
+      <h2 class="text-6xl md:text-8xl font-bold mb-2 leading-none">
+        Made for you!
+      </h2>
+      <p class="text-zinc-400 text-base md:text-lg">
+        Create · Showcase · Inspire
+      </p>
+      <p class="text-zinc-400 text-base md:text-lg mb-5">
+        Craft your portfolio in moments, masterfully.
+      </p>
+
+      <div
+        class="flex flex-wrap justify-center items-center gap-4 md:gap-6 p-4"
       >
-        <h2 class="text-6xl md:text-8xl font-bold mb-2 leading-none">
-          Portfolio Builder
-        </h2>
-        <p class="text-zinc-400 text-base md:text-lg">
-          Create · Showcase · Inspire
-        </p>
-        <p class="text-zinc-400 text-base md:text-lg mb-5">
-          Craft your portfolio in moments, masterfully.
-        </p>
-
-        <div
-          class="flex flex-wrap justify-center items-center gap-4 md:gap-6 p-4"
+        <a
+          href="#getstarted"
+          title="Build Your Portfolio"
+          class="glimmer-button group relative inline-flex items-center justify-center px-8 py-3 rounded-xl bg-white/10 border border-white/30 backdrop-blur-lg shadow-lg transition-all duration-300 hover:scale-105 hover:border-white/40 hover:shadow-2xl"
         >
-          <a
-            href="#getstarted"
-            title="Build Your Portfolio"
-            class="group relative inline-flex items-center justify-center px-8 py-3 rounded-xl bg-white/10 border border-white/30 backdrop-blur-lg shadow-lg transition-all duration-300 hover:scale-105 hover:border-white/40 hover:shadow-2xl"
+          <span
+            class="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent to-white/20 opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+          ></span>
+          <span
+            class="relative z-10 text-base font-medium text-white group-hover:text-white/90 transition-colors duration-300"
           >
-            <span
-              class="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent to-white/20 opacity-0 group-hover:opacity-10 transition-opacity duration-300"
-            ></span>
-            <span
-              class="relative z-10 text-base font-medium text-white group-hover:text-white/90 transition-colors duration-300"
+            Build Your Website!
+          </span>
+        </a>
+      </div>
+
+      <div class="transparent_overlay"></div>
+    </section>
+
+    <section id="getstarted" class="px-6 py-24 max-w-6xl mx-auto">
+      <h3
+        class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center mb-2 sm:mb-4"
+      >
+        Make It Happen!
+      </h3>
+      <p class="dim_text text-center mb-10 text-sm sm:text-base">
+        Transform your ideas into reality, instantly.
+      </p>
+
+      <form id="siteForm">
+        <div class="max-w-6xl mx-auto mt-10">
+          <div
+            class="bg-zinc-900 rounded-2xl shadow-2xl border border-zinc-700 p-6 md:p-8"
+          >
+            <!-- Header -->
+            <h2
+              class="text-2xl font-semibold text-white mb-2 text-center md:text-left"
             >
-              Get Started
-            </span>
-          </a>
+              Personal Information
+            </h2>
+            <p class="text-sm text-zinc-400 mb-6 text-center md:text-left">
+              Please fill in your details below. All fields marked with
+              <span class="text-red-500">*</span> are required.
+            </p>
+
+            <!-- Form -->
+            <!-- First Name -->
+            <div class="mb-6">
+              <label
+                for="first_name"
+                class="block text-sm font-medium text-zinc-300 mb-1"
+              >
+                First Name <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="first_name"
+                value="Karitkeya"
+                placeholder="Enter your first name"
+                class="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg placeholder-zinc-500 placeholder:italic text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                required
+              />
+            </div>
+
+            <!-- Last Name (Optional) -->
+            <div class="mb-6">
+              <label
+                for="last_name"
+                class="block text-sm font-medium text-zinc-300 mb-1 mt-6"
+              >
+                Last Name
+              </label>
+              <input
+                type="text"
+                id="last_name"
+                placeholder="Enter your last name (Optional)"
+                class="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg placeholder-zinc-500 placeholder:italic text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+              />
+            </div>
+
+            <!-- Email -->
+            <div class="mb-6">
+              <label
+                for="email"
+                class="block text-sm font-medium text-zinc-300 mb-1 mt-6"
+              >
+                Email Address <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="email"
+                id="email"
+                value="Karitkeya@gmail.com"
+                placeholder="Enter your email address"
+                class="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg placeholder-zinc-500 placeholder:italic text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                required
+              />
+            </div>
+
+            <!-- Tagline -->
+            <div class="mb-6">
+              <label
+                for="tagline"
+                class="block text-sm font-medium text-zinc-300 mb-1 mt-6"
+              >
+                Tagline <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="tagline"
+                value="Karitkeya"
+                placeholder="Describe your vibe in 5 words"
+                class="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg placeholder-zinc-500 placeholder:italic text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                required
+              />
+            </div>
+
+            <!-- Title -->
+            <div class="mb-6">
+              <label
+                for="title_website"
+                class="block text-sm font-medium text-zinc-300 mb-1"
+              >
+                Title <span class="text-red-500">*</span>
+              </label>
+              <input
+                type="text"
+                id="title_website"
+                value="Karitkeya"
+                placeholder="Enter your website name"
+                class="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg placeholder-zinc-500 placeholder:italic text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                required
+              />
+            </div>
+            <!-- About -->
+            <div>
+              <label
+                for="aboutSection"
+                class="block text-sm font-medium text-zinc-300 mb-1 mt-6"
+              >
+                About <span class="text-red-500">*</span>
+              </label>
+              <textarea
+                id="aboutSection"
+                rows="4"
+                placeholder="So, who are you really?"
+                class="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg placeholder-zinc-500 placeholder:italic text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                required
+              >
+karatikey</textarea
+              >
+            </div>
+          </div>
         </div>
-        <div class="transparent_overlay"></div>
-      </section>
 
-      <section id="getstarted" class="px-6 py-24 max-w-6xl mx-auto">
-        <h3
-          class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-center mb-2 sm:mb-4"
-        >
-          Make It Happen!
-        </h3>
-        <p class="dim_text text-center mb-10 text-sm sm:text-base">
-          Transform your ideas into reality, instantly.
-        </p>
-
-        <form id="siteForm">
-          <label for="first_name" class="block text-sm mb-1 text-zinc-400"
-            >First Name</label
+        <div class="max-w-6xl mx-auto mt-8">
+          <div
+            class="bg-zinc-900 border border-zinc-700 rounded-2xl shadow-lg p-6 md:p-8"
           >
-          <input
-            type="text"
-            id="first_name"
-            placeholder="What do your friends call you?"
-            class="w-full px-4 py-3 dark_background rounded-lg border border-zinc-700 text-white placeholder:text-zinc-400 placeholder:text-sm placeholder:italic focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            required
-          />
-
-          <label
-            for="last_name"
-            class="block text-sm mb-1 text-zinc-400 mt-4 md:mt-6"
-            >Last Name</label
-          >
-          <input
-            type="text"
-            id="last_name"
-            placeholder="Your legacy name goes here (Optional)"
-            class="w-full px-4 py-3 dark_background rounded-lg border border-zinc-700 text-white placeholder:text-zinc-400 placeholder:text-sm placeholder:italic focus:ring-2 focus:ring-blue-500 focus:outline-none"
-          />
-
-          <label
-            for="email"
-            class="block text-sm mb-1 text-zinc-400 mt-4 md:mt-6"
-            >Email</label
-          >
-          <input
-            type="email"
-            id="email"
-            placeholder="Where can the world reach you?"
-            class="w-full px-4 py-3 dark_background rounded-lg border border-zinc-700 text-white placeholder:text-zinc-400 placeholder:text-sm placeholder:italic focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            required
-          />
-
-          <label
-            for="tagline"
-            class="block text-sm mb-1 text-zinc-400 mt-4 md:mt-6"
-            >Tagline</label
-          >
-          <input
-            type="text"
-            id="tagline"
-            placeholder="Your vibe in five words"
-            class="w-full px-4 py-3 dark_background rounded-lg border border-zinc-700 text-white placeholder:text-zinc-400 placeholder:text-sm placeholder:italic focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            required
-          />
-
-          <label
-            for="aboutSection"
-            class="block text-sm mb-1 text-zinc-400 mt-4 md:mt-6"
-            >About</label
-          >
-
-          <textarea
-            id="aboutSection"
-            placeholder="So, Who Are You Really?"
-            rows="4"
-            class="w-full px-4 py-3 dark_background rounded-lg border border-zinc-700 text-white placeholder:text-zinc-400 placeholder:text-sm placeholder:italic focus:ring-2 focus:ring-blue-500 focus:outline-none"
-            required
-          ></textarea>
-
-          <!-- Profession & Hobby Selection -->
-          <div class="mt-4 md:mt-6">
-            <label
-              for="professions"
-              class="block text-sm font-medium text-zinc-400 mb-2"
+            <h2
+              class="text-2xl font-semibold text-white mb-2 text-center md:text-left"
             >
-              Select Your Profession(s) or Hobby(s) (2–4 roles):
-            </label>
+              Choose 2–4 Roles or Hobbies
+            </h2>
+            <p class="text-sm text-zinc-400 mb-6 text-center md:text-left">
+              Select the roles that best describe you.
+            </p>
 
             <div
               id="professions"
-              class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 text-sm text-zinc-200"
+              class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 text-sm text-white"
             >
-              <!-- Static roles (same as yours)... -->
-              <label class="flex role-label items-center">
+              <!-- Profession Cards -->
+              <!-- Repeat this label block for each role -->
+              <label
+                class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+              >
                 <input
                   type="checkbox"
-                  class="profession text-blue-500"
+                  class="profession accent-blue-500"
                   id="developer"
+                  checked
                 />
-                <span>Developer</span>
+                <span
+                  class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
+                  >Developer</span
+                >
               </label>
 
-              <label class="flex role-label items-center">
+              <label
+                class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+              >
                 <input
                   type="checkbox"
-                  class="profession text-blue-500"
+                  class="profession accent-blue-500"
                   id="designer"
+                  checked
                 />
-                <span>Designer</span>
+                <span
+                  class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
+                  >Designer</span
+                >
               </label>
 
-              <label class="flex role-label items-center">
+              <label
+                class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+              >
                 <input
                   type="checkbox"
-                  class="profession text-blue-500"
+                  class="profession accent-blue-500"
                   id="writer"
                 />
-                <span>Writer</span>
+                <span
+                  class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
+                  >Writer</span
+                >
               </label>
 
-              <label class="flex role-label items-center">
+              <label
+                class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+              >
                 <input
                   type="checkbox"
-                  class="profession text-blue-500"
+                  class="profession accent-blue-500"
                   id="photographer"
                 />
-                <span>Photographer</span>
+                <span
+                  class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
+                  >Photographer</span
+                >
               </label>
 
-              <label class="flex role-label items-center">
+              <!-- Add the rest similarly with same <span> styling -->
+              <label
+                class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+              >
                 <input
                   type="checkbox"
-                  class="profession text-blue-500"
+                  class="profession accent-blue-500"
                   id="musician"
                 />
-                <span>Musician</span>
+                <span
+                  class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
+                  >Musician</span
+                >
               </label>
 
-              <label class="flex role-label items-center">
+              <label
+                class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+              >
                 <input
                   type="checkbox"
-                  class="profession text-blue-500"
+                  class="profession accent-blue-500"
                   id="editor"
                 />
-                <span>Editor</span>
+                <span
+                  class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
+                  >Editor</span
+                >
               </label>
 
-              <label class="flex role-label items-center">
+              <label
+                class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+              >
                 <input
                   type="checkbox"
-                  class="profession text-blue-500"
+                  class="profession accent-blue-500"
                   id="videographer"
                 />
-                <span>Videographer</span>
+                <span
+                  class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
+                  >Videographer</span
+                >
               </label>
 
-              <label class="flex role-label items-center">
+              <label
+                class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+              >
                 <input
                   type="checkbox"
-                  class="profession text-blue-500"
+                  class="profession accent-blue-500"
                   id="illustrator"
                 />
-                <span>Illustrator</span>
+                <span
+                  class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
+                  >Illustrator</span
+                >
               </label>
 
-              <label class="flex role-label items-center">
+              <label
+                class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+              >
                 <input
                   type="checkbox"
-                  class="profession text-blue-500"
+                  class="profession accent-blue-500"
                   id="animator"
                 />
-                <span>Animator</span>
+                <span
+                  class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
+                  >Animator</span
+                >
               </label>
 
-              <label class="flex role-label items-center">
+              <label
+                class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+              >
                 <input
                   type="checkbox"
-                  class="profession text-blue-500"
+                  class="profession accent-blue-500"
                   id="content-creator"
                 />
-                <span>Content Creator</span>
+                <span
+                  class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
+                  >Content Creator</span
+                >
               </label>
 
-              <label class="flex role-label items-center">
+              <label
+                class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+              >
                 <input
                   type="checkbox"
-                  class="profession text-blue-500"
+                  class="profession accent-blue-500"
                   id="artist"
                 />
-                <span>Artist</span>
+                <span
+                  class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
+                  >Artist</span
+                >
               </label>
 
-              <label class="flex role-label items-center">
+              <label
+                class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+              >
                 <input
                   type="checkbox"
-                  class="profession text-blue-500"
+                  class="profession accent-blue-500"
                   id="coder"
                 />
-                <span>Coder</span>
+                <span
+                  class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
+                  >Coder</span
+                >
               </label>
 
-              <label class="flex role-label items-center">
+              <label
+                class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+              >
                 <input
                   type="checkbox"
-                  class="profession text-blue-500"
+                  class="profession accent-blue-500"
                   id="youtuber"
                 />
-                <span>YouTuber</span>
+                <span
+                  class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
+                  >YouTuber</span
+                >
               </label>
 
-              <label class="flex role-label items-center">
+              <label
+                class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+              >
                 <input
                   type="checkbox"
-                  class="profession text-blue-500"
+                  class="profession accent-blue-500"
                   id="traveler"
                 />
-                <span>Traveler</span>
+                <span
+                  class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
+                  >Traveler</span
+                >
               </label>
 
-              <label class="flex role-label items-center">
+              <label
+                class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+              >
                 <input
                   type="checkbox"
-                  class="profession text-blue-500"
+                  class="profession accent-blue-500"
                   id="teacher"
                 />
-                <span>Teacher</span>
+                <span
+                  class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
+                  >Teacher</span
+                >
               </label>
 
-              <label class="flex role-label items-center">
+              <label
+                class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+              >
                 <input
                   type="checkbox"
-                  class="profession text-blue-500"
+                  class="profession accent-blue-500"
                   id="student"
                 />
-                <span>Student</span>
+                <span
+                  class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
+                  >Student</span
+                >
               </label>
-              <!-- Add others similarly -->
             </div>
 
-            <span id="roleError" class="text-red-500 text-sm hidden">
+            <!-- Error message -->
+            <p id="roleError" class="text-red-500 text-sm mt-3 hidden">
               Please select between 2 and 4 roles.
-            </span>
+            </p>
 
-            <label for="otherCheckbox" class="role-label mt-3 w-full">
-              <input type="checkbox" id="otherCheckbox" class="profession" />
-              <span>Other:</span>
+            <!-- Other profession input -->
+            <div class="mt-6 space-y-2">
+              <!-- Checkbox on its own line -->
+              <label class="flex items-center gap-2 text-sm text-white">
+                <input
+                  type="checkbox"
+                  id="otherCheckbox"
+                  class="profession accent-blue-500"
+                />
+                <span>Other:</span>
+              </label>
 
-              <input
-                type="text"
-                id="otherProfession"
-                class="other-input hidden"
-                placeholder="Enter your custom role"
-                disabled
-              />
-
-              <button
-                id="addProfessionBtn"
-                class="add-btn button_background hidden"
-              >
-                Add
-              </button>
-            </label>
+              <!-- Input and button in flex row -->
+              <div class="flex gap-2 max-w-xs">
+                <input
+                  type="text"
+                  id="otherProfession"
+                  class="flex-1 px-3 py-2 bg-zinc-800 border border-zinc-600 text-white rounded-lg hidden"
+                  placeholder="Enter your custom role"
+                  disabled
+                />
+                <button
+                  id="addProfessionBtn"
+                  class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm hidden"
+                >
+                  Add
+                </button>
+              </div>
+            </div>
           </div>
+        </div>
 
-          <div>
-            <label
-              for="socialPlatform"
-              class="block text-sm mb-1 text-zinc-400 mt-4 md:mt-6"
-              >Add Your Social Media Links:</label
+        <div
+          class="bg-zinc-900 rounded-xl shadow-lg p-6 max-w-6xl mx-auto mt-10 border border-zinc-700"
+        >
+          <label class="block text-sm mb-1 text-zinc-400 mt-4 md:mt-6">
+            <h2
+              class="text-2xl font-semibold text-white mb-2 text-center md:text-left"
             >
+              Webpage theme
+            </h2>
+            <p class="text-sm text-zinc-400 mb-6 text-center md:text-left">
+              Select a Preset Background
+            </p>
+          </label>
+          <div
+            id="bgPalette"
+            class="grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8"
+          >
+            <!-- Background Option 0 -->
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/Background.webp"
+                data-bg-color="#10121b"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+              <div class="flex space-x-1"></div>
+            </div>
 
-            <div id="socialFields" class="space-y-4"></div>
+            <!-- Background Option 1 -->
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/1.webp"
+                data-bg-color="#1b1210"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
 
-            <div class="flex flex-col md:flex-row md:space-x-6">
-              <div class="w-full md:w-1/3">
+            <!-- Background Option 2 -->
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/2.webp"
+                data-bg-color="#121413"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 3 -->
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/3.webp"
+                data-bg-color="#0c191c"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 4 -->
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/4.webp"
+                data-bg-color="#1b101a"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 5 -->
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/5.webp"
+                data-bg-color="#1f1a17"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 6 -->
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/6.webp"
+                data-bg-color="#121115"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 7 -->
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/7.webp"
+                data-bg-color="#1b1210"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 8 -->
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/8.webp"
+                data-bg-color="#202425"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 9 -->
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/9.webp"
+                data-bg-color="#0f1318"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 10 -->
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/Background-Dark.webp"
+                data-bg-color="#0b0b0b"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 11 -->
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/Black-Background.webp"
+                data-bg-color="#0b0b0b"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 12 -->
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/10.webp"
+                data-bg-color="#3e2c23"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 13 -->
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/11.png"
+                data-bg-color="#462929"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 14 -->
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/12.png"
+                data-bg-color="#4d5b47"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 15 -->
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/13.png"
+                data-bg-color="#0e0f0b"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 16 -->
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/14.jpg"
+                data-bg-color="#0f0d0b"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 17 -->
+
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/15.jpg"
+                data-bg-color="#0f0c0b"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 18 -->
+
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/16.jpg"
+                data-bg-color="#0b0c0f"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 19 -->
+
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/17.jpg"
+                data-bg-color="#0f0d0b"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 20 -->
+
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/18.png"
+                data-bg-color="#0b0f0f"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 21 -->
+
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/19.jpg"
+                data-bg-color="#0f0d0b"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 22 -->
+
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/20.jpg"
+                data-bg-color="#0b0d0b"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 23 -->
+
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/26.png"
+                data-bg-color="#04090c"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 24 -->
+
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/27.jpg"
+                data-bg-color="#0d0f0c"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 25 -->
+
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/28.jpg"
+                data-bg-color="#0f0d0c"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 26 -->
+
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/29.jpg"
+                data-bg-color="#070606"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 27 -->
+
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/30.png"
+                data-bg-color="#3a3a3a"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 28 -->
+
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/31.png"
+                data-bg-color="#121212"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 29 -->
+
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/32.png"
+                data-bg-color="#101010"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 30 -->
+
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/33.png"
+                data-bg-color="#010101"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+
+            <!-- Background Option 31 -->
+
+            <div class="bg-option flex flex-col items-center space-y-2">
+              <img
+                src="./Media/34.png"
+                data-bg-color="#0d0d0d"
+                class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="max-w-2xl mx-auto mt-10">
+          <div
+            class="bg-zinc-900 rounded-2xl shadow-xl p-6 border border-zinc-700"
+          >
+            <h2
+              class="text-2xl font-semibold text-white mb-2 text-center md:text-left"
+            >
+              Title Font
+            </h2>
+            <p class="text-sm text-zinc-400 mb-6 text-center md:text-left">
+              Choose a font style for your title. The preview updates instantly.
+            </p>
+
+            <select
+              id="titleFont"
+              class="w-full px-4 py-3 bg-zinc-800 text-white rounded-lg border border-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+            >
+              <option value="'Bethasia'">Bethasia (Recommended)</option>
+              <option value="'Dream Avenue'">Dream Avenue (My favorite)</option>
+              <option value="'Apricot'">Apricot</option>
+              <option value="'Montserrat'">Montserrat</option>
+
+              <option value="'Poppins'">Poppins</option>
+              <option value="'Roboto'">Roboto</option>
+              <option value="'Open Sans'">Open Sans</option>
+            </select>
+
+            <div
+              id="fontPreview"
+              class="mt-6 bg-zinc-800 rounded-xl px-4 py-6 text-white text-2xl text-center font-semibold transition-all duration-300"
+              style="font-family: 'Bethasia'"
+            >
+              This is a font preview.
+            </div>
+          </div>
+        </div>
+
+        <div class="max-w-2xl mx-auto mt-10">
+          <div
+            class="bg-zinc-900 rounded-2xl shadow-2xl p-6 md:p-8 border border-zinc-700"
+          >
+            <h2
+              class="text-2xl font-semibold text-white mb-2 text-center md:text-left"
+            >
+              Add Your Social Media Links
+            </h2>
+            <p class="text-sm text-zinc-400 mb-6 text-center md:text-left">
+              Select your platform and paste the corresponding URL below.
+            </p>
+
+            <div id="socialFields" class="flex flex-wrap gap-4 mb-6"></div>
+
+            <div
+              class="flex flex-col md:flex-row md:items-end md:space-x-4 space-y-4 md:space-y-0"
+            >
+              <!-- Platform Select -->
+              <div class="flex-1">
+                <label
+                  for="socialPlatform"
+                  class="block text-sm font-medium text-zinc-300 mb-1"
+                >
+                  Platform
+                </label>
                 <select
                   id="socialPlatform"
-                  class="w-full px-4 py-3 dark_background rounded-lg border border-zinc-700 text-white placeholder:text-zinc-400 placeholder:text-sm placeholder:italic focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                  aria-label="Select Social Media Platform"
+                  class="w-full px-4 py-3 bg-zinc-800 text-white border border-zinc-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
                 >
-                  <option value="icon_none">Select</option>
+                  <option value="icon_none" disabled selected>Select</option>
                   <option value="facebook">Facebook</option>
                   <option value="instagram">Instagram</option>
                   <option value="twitter">Twitter/X</option>
@@ -826,647 +1353,288 @@
                 </select>
               </div>
 
-              <!-- Social Media URL Input and Add Button -->
-              <div
-                class="w-full md:w-2/3 flex items-center space-x-4 mt-4 md:mt-0"
-              >
+              <!-- URL Input -->
+              <div class="flex-1">
+                <label
+                  for="socialURL"
+                  class="block text-sm font-medium text-zinc-300 mb-1"
+                >
+                  URL
+                </label>
                 <input
                   type="url"
                   id="socialURL"
-                  placeholder="Where can we stalk your brilliance?"
-                  class="w-full px-4 py-3 dark_background rounded-lg border border-zinc-700 text-white placeholder:text-zinc-400 placeholder:text-sm placeholder:italic focus:ring-2 focus:ring-blue-500 focus:outline-none"
-                  aria-label="Enter your social media URL"
+                  placeholder="Paste your URL here"
+                  class="w-full px-4 py-3 bg-zinc-800 text-white border border-zinc-600 rounded-lg placeholder-zinc-400 placeholder:italic focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
                 />
+              </div>
+
+              <!-- Add Button -->
+              <div class="w-full md:w-auto">
                 <button
                   type="button"
                   id="addSocialBtn"
-                  class="button_background text-white px-6 py-3 rounded-lg"
-                  aria-label="Add social media link"
+                  class="w-full md:w-auto px-6 py-3 button_background text-white font-semibold rounded-lg transition"
                 >
                   Add
                 </button>
               </div>
             </div>
           </div>
+        </div>
 
-          <label class="block text-sm mb-1 text-zinc-400 mt-4 md:mt-6"
-            >Select a Preset Background</label
-          >
+        <div class="max-w-2xl mx-auto mt-10">
           <div
-            id="bgPalette"
-            class="grid gap-2 grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8"
+            class="bg-zinc-900 rounded-2xl shadow-xl p-6 border border-zinc-700"
           >
-            <!-- Background Option 0 -->
-            <div class="bg-option flex flex-col items-center space-y-2">
-              <img
-                src="./Media/Background.webp"
-                data-bg-color="#10121b"
-                class="bg-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-              />
-              <div class="palette flex space-x-1"></div>
-            </div>
+            <h2
+              class="text-2xl font-semibold text-white mb-2 text-center md:text-left"
+            >
+              Upload Favicon
+            </h2>
+            <p
+              class="text-sm text-zinc-400 mb-6 text-center md:text-left"
+              id="faviconHelp"
+            >
+              Upload a small image (usually 32×32px) to represent your site in
+              browser tabs.
+            </p>
 
-            <!-- Background Option 1 -->
-            <div class="bg-option flex flex-col items-center space-y-2">
-              <img
-                src="./Media/1.webp"
-                data-bg-color="#1b1210"
-                class="bg-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-              />
-              <div class="palette flex space-x-1"></div>
-            </div>
-
-            <!-- Background Option 2 -->
-            <div class="bg-option flex flex-col items-center space-y-2">
-              <img
-                src="./Media/2.webp"
-                data-bg-color="#121413"
-                class="bg-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-              />
-              <div class="palette flex space-x-1"></div>
-            </div>
-
-            <!-- Background Option 3 -->
-            <div class="bg-option flex flex-col items-center space-y-2">
-              <img
-                src="./Media/3.webp"
-                data-bg-color="#0c191c"
-                class="bg-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-              />
-              <div class="palette flex space-x-1"></div>
-            </div>
-
-            <!-- Background Option 4 -->
-            <div class="bg-option flex flex-col items-center space-y-2">
-              <img
-                src="./Media/4.webp"
-                data-bg-color="#1b101a"
-                class="bg-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-              />
-              <div class="palette flex space-x-1"></div>
-            </div>
-
-            <!-- Background Option 5 -->
-            <div class="bg-option flex flex-col items-center space-y-2">
-              <img
-                src="./Media/5.webp"
-                data-bg-color="#1f1a17"
-                class="bg-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-              />
-              <div class="palette flex space-x-1"></div>
-            </div>
-
-            <!-- Background Option 6 -->
-            <div class="bg-option flex flex-col items-center space-y-2">
-              <img
-                src="./Media/6.webp"
-                data-bg-color="#121115"
-                class="bg-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-              />
-              <div class="palette flex space-x-1"></div>
-            </div>
-
-            <!-- Background Option 7 -->
-            <div class="bg-option flex flex-col items-center space-y-2">
-              <img
-                src="./Media/7.webp"
-                data-bg-color="#1b1210"
-                class="bg-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-              />
-              <div class="palette flex space-x-1"></div>
-            </div>
-
-            <!-- Background Option 8 -->
-            <div class="bg-option flex flex-col items-center space-y-2">
-              <img
-                src="./Media/8.webp"
-                data-bg-color="#202425"
-                class="bg-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-              />
-              <div class="palette flex space-x-1"></div>
-            </div>
-
-            <!-- Background Option 9 -->
-            <div class="bg-option flex flex-col items-center space-y-2">
-              <img
-                src="./Media/9.webp"
-                data-bg-color="#0f1318"
-                class="bg-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-              />
-              <div class="palette flex space-x-1"></div>
-            </div>
-
-            <!-- Background Option 10 -->
-            <div class="bg-option flex flex-col items-center space-y-2">
-              <img
-                src="./Media/Background-Dark.webp"
-                data-bg-color="#0b0b0b"
-                class="bg-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-              />
-              <div class="palette flex space-x-1"></div>
-            </div>
-
-            <!-- Background Option 11 -->
-            <div class="bg-option flex flex-col items-center space-y-2">
-              <img
-                src="./Media/Black-Background.webp"
-                data-bg-color="#0b0b0b"
-                class="bg-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-              />
-              <div class="palette flex space-x-1"></div>
-            </div>
-
-            <!-- Background Option 12 -->
-            <div class="bg-option flex flex-col items-center space-y-2">
-              <img
-                src="./Media/10.webp"
-                data-bg-color="#3e2c23"
-                class="bg-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-              />
-              <div class="palette flex space-x-1"></div>
-            </div>
-
-            <!-- Background Option 12 -->
-            <div class="bg-option flex flex-col items-center space-y-2">
-              <img
-                src="./Media/11.png"
-                data-bg-color="#462929"
-                class="bg-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-              />
-              <div class="palette flex space-x-1"></div>
-            </div>
-
-            <!-- Background Option 13 -->
-            <div class="bg-option flex flex-col items-center space-y-2">
-              <img
-                src="./Media/12.png"
-                data-bg-color="#4d5b47"
-                class="bg-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-              />
-              <div class="palette flex space-x-1"></div>
-            </div>
-
-            <!-- Background Option 14 -->
-            <div class="bg-option flex flex-col items-center space-y-2">
-              <img
-                src="./Media/13.png"
-                data-bg-color="#0e0f0b"
-                class="bg-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-              />
-              <div class="palette flex space-x-1"></div>
-            </div>
-
-            <!-- Background Option 15 -->
-            <div class="bg-option flex flex-col items-center space-y-2">
-              <img
-                src="./Media/14.jpg"
-                data-bg-color="#0f0d0b"
-                class="bg-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-              />
-              <div class="palette flex space-x-1"></div>
-            </div>
-
-            <!-- Background Option 16 -->
-
-            <div class="bg-option flex flex-col items-center space-y-2">
-              <img
-                src="./Media/15.jpg"
-                data-bg-color="#0f0c0b"
-                class="bg-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-              />
-              <div class="palette flex space-x-1"></div>
-            </div>
-
-            <div class="bg-option flex flex-col items-center space-y-2">
-              <img
-                src="./Media/16.jpg"
-                data-bg-color="#0b0c0f"
-                class="bg-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-              />
-              <div class="palette flex space-x-1"></div>
-            </div>
-
-            <div class="bg-option flex flex-col items-center space-y-2">
-              <img
-                src="./Media/17.jpg"
-                data-bg-color="#0f0d0b"
-                class="bg-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-              />
-              <div class="palette flex space-x-1"></div>
-            </div>
-
-            <div class="bg-option flex flex-col items-center space-y-2">
-              <img
-                src="./Media/18.png"
-                data-bg-color="#0b0f0f"
-                class="bg-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-              />
-              <div class="palette flex space-x-1"></div>
-            </div>
-
-            <div class="bg-option flex flex-col items-center space-y-2">
-              <img
-                src="./Media/19.jpg"
-                data-bg-color="#0f0d0b"
-                class="bg-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-              />
-              <div class="palette flex space-x-1"></div>
-            </div>
-
-            <div class="bg-option flex flex-col items-center space-y-2">
-              <img
-                src="./Media/20.jpg"
-                data-bg-color="#0b0d0b"
-                class="bg-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-              />
-              <div class="palette flex space-x-1"></div>
-            </div>
-
-            <div class="bg-option flex flex-col items-center space-y-2">
-              <img
-                src="./Media/26.png"
-                data-bg-color="#04090c"
-                class="bg-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-              />
-              <div class="palette flex space-x-1"></div>
-            </div>
-
-            <div class="bg-option flex flex-col items-center space-y-2">
-              <img
-                src="./Media/27.jpg"
-                data-bg-color="#0d0f0c"
-                class="bg-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-              />
-              <div class="palette flex space-x-1"></div>
-            </div>
-
-            <div class="bg-option flex flex-col items-center space-y-2">
-              <img
-                src="./Media/28.jpg"
-                data-bg-color="#0c0804"
-                class="bg-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-              />
-              <div class="palette flex space-x-1"></div>
-            </div>
-
-            <div class="bg-option flex flex-col items-center space-y-2">
-              <img
-                src="./Media/29.jpg"
-                data-bg-color="#070606"
-                class="bg-thumb w-20 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-              />
-              <div class="palette flex space-x-1"></div>
-            </div>
-          </div>
-
-          <label
-            for="titleFont"
-            class="block text-sm mb-1 text-zinc-400 mt-4 md:mt-6"
-            >Title Font:</label
-          >
-          <select
-            id="titleFont"
-            class="w-200 px-4 py-3 dark_background rounded-lg border border-zinc-700 text-white placeholder:text-zinc-400 placeholder:text-sm placeholder:italic focus:ring-2 focus:ring-blue-500 focus:outline-none"
-          >
-            <option value="'Bethasia">Bethasia (Recommended)</option>
-            <option value="'Dream Avenue">Dream Avenue</option>
-            <option value="'Apricot">Apricot</option>
-            <option value="'TanBuster">Tan Buster</option>
-            <option value="'Harry Potter">Harry Potter</option>
-          </select>
-
-          <p
-            id="fontPreview"
-            class="mt-4 text-white text-xl transition-all duration-300"
-          >
-            This is a font preview.
-          </p>
-
-          <label
-            for="faviconFile"
-            class="block text-sm mb-1 text-zinc-400 mt-4 md:mt-6"
-          >
-            Upload Favicon (Website Logo):
-          </label>
-
-          <div class="relative">
+            <!-- Hidden file input -->
             <input
               type="file"
               id="faviconFile"
               accept="image/png, image/jpeg"
-              onchange="handleFaviconChange(event)"
               class="hidden"
+              onchange="handleFaviconChange(event)"
               aria-describedby="faviconHelp"
-              aria-label="Choose an image file to upload as a favicon"
+              aria-label="Choose a favicon image"
             />
+
+            <!-- Styled upload button with centered content -->
             <button
               type="button"
-              class="w-250 py-2 px-4 text-sm font-medium dark_background border border-zinc-700 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 cursor-pointer transition-colors"
               onclick="document.getElementById('faviconFile').click()"
+              class="flex justify-center items-center w-full py-2 px-4 bg-zinc-800 border border-zinc-600 text-white rounded-lg font-medium text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 hover:bg-zinc-700 transition-all"
             >
-              Choose Favicon
+              <span>Choose Favicon</span>
+              <div class="loader ml-2" id="favicon_loader"></div>
             </button>
-          </div>
 
-          <div id="faviconFields" class="mt-2"></div>
-
-          <label
-            for="loaderOption"
-            class="block text-sm font-medium text-zinc-400 mt-6"
-          >
-            Select Loader:
-          </label>
-          <div class="flex items-center gap-6 mt-4">
-            <label
-              class="flex items-center gap-2 cursor-pointer text-sm text-zinc-300"
-            >
-              <input
-                type="radio"
-                name="loaderOption"
-                value="with"
-                checked
-                class="accent-zinc-500"
+            <!-- Preview area -->
+            <div id="faviconFields" class="mt-6 text-center">
+              <p class="text-zinc-400 text-sm mb-2" id="previewNote">
+                No image selected yet.
+              </p>
+              <img
+                id="faviconPreview"
+                src=""
+                alt="Favicon preview"
+                class="mx-auto h-12 w-12 rounded shadow hidden"
               />
-              <span
-                >With Loader
-                <span class="text-zinc-500">(Recommended)</span></span
-              >
-            </label>
-            <label
-              class="flex items-center gap-2 cursor-pointer text-sm text-zinc-300"
-            >
-              <input
-                type="radio"
-                name="loaderOption"
-                value="without"
-                class="accent-zinc-500"
-              />
-              <span>Without Loader</span>
-            </label>
+            </div>
           </div>
+        </div>
 
-          <label
-            for="faviconFile"
-            class="block text-sm mb-1 text-zinc-400 mt-4 md:mt-6"
-            >Preview:</label
-          >
+        <div class="max-w-2xl mx-auto mt-10">
           <div
-            class="browser-window"
-            role="main"
-            aria-label="Simulated Browser Window"
+            class="bg-zinc-900 rounded-2xl shadow-xl p-6 border border-zinc-700"
           >
-            <div class="title-bar">
-              <div class="title-buttons">
-                <div class="close-button"></div>
-                <div class="minimize-button"></div>
-                <div class="maximize-button"></div>
-              </div>
+            <h2
+              class="text-2xl font-semibold text-white mb-2 text-center md:text-left"
+            >
+              Select Loader
+            </h2>
+            <p class="text-sm text-zinc-400 mb-6 text-center md:text-left">
+              Choose whether to display a loader animation while your content
+              loads.
+            </p>
 
-              <div class="title-text">
-                <img
-                  src="#faviconurl"
-                  alt="Favicon"
-                  class="favicon"
-                  id="faviconPreview"
-                />
-
-                <div class="text_url" id="text_url_bar"></div>
-              </div>
-            </div>
-
-            <div class="address-bar" role="search">
-              <div class="nav-buttons">
-                <button class="nav-button" aria-label="Back">
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M15 18l-6-6 6-6" />
-                  </svg>
-                </button>
-                <button class="nav-button" aria-label="Forward">
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <path d="M9 18l6-6-6-6" />
-                  </svg>
-                </button>
-                <button class="nav-button" aria-label="Reload">
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <polyline points="23 4 23 10 17 10" />
-                    <polyline points="1 20 1 14 7 14" />
-                    <path
-                      d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"
-                    />
-                  </svg>
-                </button>
-              </div>
-              <div class="input-wrapper">
-                <div class="secure-icon">
-                  <svg
-                    width="18"
-                    height="18"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="#81c784"
-                    stroke-width="2"
-                    stroke-linecap="round"
-                    stroke-linejoin="round"
-                  >
-                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
-                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-                  </svg>
-                </div>
+            <div class="flex flex-col gap-4">
+              <!-- Option: With Loader -->
+              <label
+                for="loaderWith"
+                class="flex items-center gap-4 cursor-pointer rounded-lg border border-zinc-700 px-5 py-4 text-white text-sm transition-colors duration-200 hover:border-blue-500 hover:bg-zinc-800"
+              >
                 <input
-                  type="text"
-                  class="url-input"
-                  id="url_bar"
-                  placeholder="Your website"
-                  aria-label="Address bar"
-                  readonly
+                  type="radio"
+                  id="loaderWith"
+                  name="loaderOption"
+                  value="with"
+                  checked
+                  class="accent-blue-500 w-5 h-5 cursor-pointer"
                 />
-              </div>
-            </div>
-            <div class="content-area"></div>
-          </div>
+                <div>
+                  <span class="font-semibold">With Loader</span>
+                  <p class="text-zinc-500 text-xs mt-1">Recommended</p>
+                </div>
+              </label>
 
+              <!-- Option: Without Loader -->
+              <label
+                for="loaderWithout"
+                class="flex items-center gap-4 cursor-pointer rounded-lg border border-zinc-700 px-5 py-4 text-white text-sm transition-colors duration-200 hover:border-blue-500 hover:bg-zinc-800"
+              >
+                <input
+                  type="radio"
+                  id="loaderWithout"
+                  name="loaderOption"
+                  value="without"
+                  class="accent-blue-500 w-5 h-5 cursor-pointer"
+                />
+                <div>
+                  <span class="font-semibold">Without Loader</span>
+                  <p class="text-zinc-500 text-xs mt-1">Fast</p>
+                </div>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="flex justify-center mt-6">
           <button
             type="submit"
             id="submitBtn"
-            class="button_background text-white px-6 py-3 rounded-lg mt-4 md:mt-6 flex items-center justify-center"
+            class="button_background text-white font-semibold px-6 py-3 rounded-lg flex items-center justify-center shadow-md transition"
           >
             <span id="btnText">Generate My Site</span>
-            <div id="loader_site" class="ml-2"></div>
+            <div
+              id="loader_site"
+              class="ml-2 w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin hidden"
+            ></div>
           </button>
-        </form>
-      </section>
-
-      <section id="whatnext" class="px-6 py-24 max-w-3xl mx-auto text-center">
-        <h3 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
-          What’s Next?
-        </h3>
-        <p class="text-zinc-400 text-base md:text-lg leading-relaxed mb-8">
-          You’ve successfully generated your portfolio — great job! Now let’s
-          bring it to life.
-        </p>
-
-        <div
-          class="text-left space-y-6 text-zinc-400 text-base md:text-lg leading-relaxed md:leading-loose"
-        >
-          <div>
-            <strong class="text-white">1. Unzip the Downloaded Folder</strong
-            ><br />
-            Locate the downloaded <code>.zip</code> file on your computer and
-            extract it.
-          </div>
-
-          <div>
-            <strong class="text-white">2. View Your Portfolio Locally</strong
-            ><br />
-            Open the unzipped folder and double-click the
-            <code>index.html</code> file. It will open in your default web
-            browser — that’s your live portfolio!
-          </div>
-
-          <!-- <div>
-            <strong class="text-white"
-              >Want to Publish It Online for Free?</strong
-            ><br />
-            You can host your portfolio using
-            <a
-              href="https://pages.github.com"
-              target="_blank"
-              class="underline hover:text-white"
-              >GitHub Pages</a
-            >. Here’s how:
-          </div> -->
         </div>
-      </section>
+      </form>
+    </section>
 
-      <section
-        id="message_for_you"
-        class="px-6 py-24 max-w-3xl mx-auto text-center"
+    <section id="whatnext" class="px-6 py-24 max-w-3xl mx-auto text-center">
+      <h3 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
+        What’s Next?
+      </h3>
+      <p class="text-zinc-400 text-base md:text-lg leading-relaxed mb-8">
+        You’ve successfully generated your portfolio — great job! Now let’s
+        bring it to life.
+      </p>
+
+      <div
+        class="text-left space-y-6 text-zinc-400 text-base md:text-lg leading-relaxed md:leading-loose"
       >
-        <h3
-          class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-2 sm:mb-4"
-        >
-          A Gentle Message Just for You!
-        </h3>
-        <p class="dim_text mb-8 text-base">
-          Because your heart deserves a smile today.
-        </p>
-        <p
-          class="text-zinc-400 text-base md:text-lg leading-relaxed md:leading-loose"
-        >
-          Hey there,
-        </p>
-
-        <p
-          class="text-zinc-400 text-base md:text-lg leading-relaxed md:leading-loose mt-2 md:mt-3"
-        >
-          Thank you for stopping by. Whether you arrived here by chance,
-          curiosity, or intention—I’m truly glad you did.
-        </p>
-
-        <p
-          class="text-zinc-400 text-base md:text-lg leading-relaxed md:leading-loose mt-2 md:mt-3"
-        >
-          This space is more than just a portfolio; it’s a quiet little corner
-          of the internet where I’ve poured fragments of my heart, passion, and
-          creativity. Every design, every line of code, every word is stitched
-          with midnight hustle, quiet hope, an unspoken love for the art of
-          building something meaningful and my belief in the beauty of
-          simplicity, purpose, and human connection.
-        </p>
-
-        <p
-          class="text-zinc-400 text-base md:text-lg leading-relaxed md:leading-loose mt-2 md:mt-3"
-        >
-          If you’re walking through storms, chasing something invisible, or
-          simply wondering if your spark matters—let me remind you: it does. You
-          do.
-        </p>
-
-        <p
-          class="text-zinc-400 text-base md:text-lg leading-relaxed md:leading-loose mt-2 md:mt-3"
-        >
-          With love and quiet awe,
-        </p>
         <div>
-          <div class="sign">Kartikeya</div>
+          <strong class="text-white">1. Unzip the Downloaded Folder</strong
+          ><br />
+          Locate the downloaded <code>.zip</code> file on your computer and
+          extract it.
         </div>
-      </section>
 
-      <footer
-        id="footer"
-        class="relative w-full bg-black bg-opacity-90 text-white footer-section"
+        <div>
+          <strong class="text-white">2. View Your Portfolio Locally</strong
+          ><br />
+          Open the unzipped folder and double-click the
+          <code>index.html</code> file. It will open in your default web browser
+          — that’s your live portfolio!
+        </div>
+      </div>
+    </section>
+
+    <section
+      id="message_for_you"
+      class="px-6 py-24 max-w-3xl mx-auto text-center"
+    >
+      <h3
+        class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-2 sm:mb-4"
       >
-        <div class="space_height_bottom"></div>
-        <div class="transparent_overlay_bottom"></div>
-        <div class="w-full border-b border-zinc-700"></div>
+        A Gentle Message Just for You!
+      </h3>
+      <p class="dim_text mb-8 text-base">
+        Because your heart deserves a smile today.
+      </p>
+      <p
+        class="text-zinc-400 text-base md:text-lg leading-relaxed md:leading-loose"
+      >
+        Hey there,
+      </p>
 
-        <div
-          class="flex flex-col md:flex-row justify-between gap-12 px-6 md:px-16 py-12"
-        >
-          <div class="w-full md:w-1/2">
-            <h2
-              class="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-normal"
-            >
-              About Me
-            </h2>
-            <p class="text-zinc-400 text-base md:text-lg leading-snug mt-4">
-              I’m Kartikeya, a programmer and typist, skilled in front-end
-              development (HTML, CSS, JavaScript, React) and Python. I also have
-              experience in C and video editing
-            </p>
-          </div>
+      <p
+        class="text-zinc-400 text-base md:text-lg leading-relaxed md:leading-loose mt-2 md:mt-3"
+      >
+        Thank you for stopping by. Whether you arrived here by chance,
+        curiosity, or intention—I’m truly glad you did.
+      </p>
 
-          <div class="w-full md:w-1/2">
-            <h2
-              class="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-normal"
-            >
-              Wanna talk?
-            </h2>
-            <p class="text-zinc-400 text-base md:text-lg leading-snug mt-4">
-              Let’s connect and create something amazing together. Feel free to
-              reach out to me here
-              <a href="#contact" class="underline">contact</a>. I’m open to new
-              ideas and collaborations. Let’s create!
-            </p>
-          </div>
+      <p
+        class="text-zinc-400 text-base md:text-lg leading-relaxed md:leading-loose mt-2 md:mt-3"
+      >
+        This space is more than just a portfolio; it’s a quiet little corner of
+        the internet where I’ve poured fragments of my heart, passion, and
+        creativity. Every design, every line of code, every word is stitched
+        with midnight hustle, quiet hope, an unspoken love for the art of
+        building something meaningful and my belief in the beauty of simplicity,
+        purpose, and human connection.
+      </p>
+
+      <p
+        class="text-zinc-400 text-base md:text-lg leading-relaxed md:leading-loose mt-2 md:mt-3"
+      >
+        If you’re walking through storms, chasing something invisible, or simply
+        wondering if your spark matters—let me remind you: it does. You do.
+      </p>
+
+      <p
+        class="text-zinc-400 text-base md:text-lg leading-relaxed md:leading-loose mt-2 md:mt-3"
+      >
+        With love and quiet awe,
+      </p>
+      <div>
+        <div class="sign">Kartikeya</div>
+      </div>
+    </section>
+
+    <footer
+      id="footer"
+      class="relative w-full bg-black bg-opacity-90 text-white footer-section"
+    >
+      <div class="space_height_bottom"></div>
+      <div class="transparent_overlay_bottom"></div>
+      <div class="w-full border-b border-zinc-700"></div>
+
+      <div
+        class="flex flex-col md:flex-row justify-between gap-12 px-6 md:px-16 py-12"
+      >
+        <div class="w-full md:w-1/2">
+          <h2
+            class="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-normal"
+          >
+            About Me
+          </h2>
+          <p class="text-zinc-400 text-base md:text-lg leading-snug mt-4">
+            I’m Kartikeya, a programmer and typist, skilled in front-end
+            development (HTML, CSS, JavaScript, React) and Python. I also have
+            experience in C and video editing
+          </p>
         </div>
 
-        <div
-          class="text-center py-6 text-zinc-400 text-sm border-t border-zinc-700"
-        >
-          © <span id="year"></span> Kartikeya. All rights reserved.
+        <div class="w-full md:w-1/2">
+          <h2
+            class="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-normal"
+          >
+            Wanna talk?
+          </h2>
+          <p class="text-zinc-400 text-base md:text-lg leading-snug mt-4">
+            Let’s connect and create something amazing together. Feel free to
+            reach out to me here
+            <a href="#contact" class="underline">contact</a>. I’m open to new
+            ideas and collaborations. Let’s create!
+          </p>
         </div>
-      </footer>
-    </div>
+      </div>
 
-    <!-- Image Preview Modal (Below 80px Navbar) -->
+      <div
+        class="text-center py-6 text-zinc-400 text-sm border-t border-zinc-700"
+      >
+        © <span id="year"></span> Kartikeya. All rights reserved.
+      </div>
+    </footer>
+
     <div
       id="imageModal"
       class="fixed top-[80px] bottom-0 left-0 right-0 bg-black bg-opacity-60 backdrop-blur-sm flex items-center justify-center hidden z-40"
@@ -1481,7 +1649,6 @@
           class="max-w-[90vw] max-h-[75vh] rounded-2xl shadow-2xl border border-white/10"
         />
 
-        <!-- Close Button -->
         <button
           onclick="closeModal()"
           class="absolute top-2 right-2 bg-white/10 hover:bg-white/20 text-white rounded-full p-1.5 transition-all duration-200"
@@ -1536,100 +1703,102 @@
 
       async function handleFaviconChange(event) {
         const faviconFile = event.target.files[0];
-        if (!faviconFile) return alert("Please select a favicon image file.");
+        const preview = document.getElementById("faviconPreview");
+        const note = document.getElementById("previewNote");
+        const loader_favicon = document.getElementById("favicon_loader");
+
+        // Reset UI
+        preview.style.display = "none";
+        loader_favicon.style.display = "none";
+        note.textContent = "Loading preview...";
+
+        if (!faviconFile) {
+          alert("Please select a favicon image file.");
+          preview.src = "";
+          note.textContent = "No image selected yet.";
+          return;
+        }
+
+        // Validate file type early
+        if (!faviconFile.type.startsWith("image/")) {
+          alert("Please upload a valid image file (PNG or JPEG).");
+          preview.src = "";
+          note.textContent =
+            "Invalid file type. Please upload a PNG or JPEG image.";
+          return;
+        }
+
+        // Show loader while processing
+        loader_favicon.style.display = "block";
 
         const reader = new FileReader();
+
         reader.onload = (e) => {
           const img = new Image();
+
           img.onload = async () => {
-            const size = Math.min(img.width, img.height);
-            const canvas = document.createElement("canvas");
-            canvas.width = size;
-            canvas.height = size;
-            const ctx = canvas.getContext("2d");
+            try {
+              const size = Math.min(img.width, img.height);
+              const canvas = document.createElement("canvas");
+              canvas.width = size;
+              canvas.height = size;
+              const ctx = canvas.getContext("2d");
 
-            ctx.beginPath();
-            ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
-            ctx.closePath();
-            ctx.clip();
-            ctx.drawImage(
-              img,
-              (img.width - size) / 2,
-              (img.height - size) / 2,
-              size,
-              size,
-              0,
-              0,
-              size,
-              size
-            );
+              ctx.beginPath();
+              ctx.arc(size / 2, size / 2, size / 2, 0, Math.PI * 2);
+              ctx.closePath();
+              ctx.clip();
 
-            const croppedDataURL = canvas.toDataURL("image/png");
-            faviconBlob = await (await fetch(croppedDataURL)).blob();
+              ctx.drawImage(
+                img,
+                (img.width - size) / 2,
+                (img.height - size) / 2,
+                size,
+                size,
+                0,
+                0,
+                size,
+                size
+              );
 
-            let faviconTag = document.querySelector("link[rel~='icon']");
-            if (!faviconTag) {
-              faviconTag = document.createElement("link");
-              faviconTag.rel = "icon";
-              document.head.appendChild(faviconTag);
-            }
-            faviconTag.href = croppedDataURL;
+              const croppedDataURL = canvas.toDataURL("image/png");
+              const faviconBlob = await (await fetch(croppedDataURL)).blob();
 
-            const preview = document.getElementById("faviconPreview");
-            if (preview) {
+              let faviconTag = document.querySelector("link[rel~='icon']");
+              if (!faviconTag) {
+                faviconTag = document.createElement("link");
+                faviconTag.rel = "icon";
+                document.head.appendChild(faviconTag);
+              }
+              faviconTag.href = croppedDataURL;
+
               preview.src = croppedDataURL;
-              preview.style.display = "block";
+              preview.style.display = "inline-block";
+              note.textContent = "Favicon preview:";
+            } catch (error) {
+              alert("Error processing image. Please try another file.");
+              preview.src = "";
+              preview.style.display = "none";
+              note.textContent = "No image selected yet.";
+              console.error(error);
+            } finally {
+              loader_favicon.style.display = "none"; // hide loader after success or error
             }
           };
-          img.onerror = () => alert("Invalid image file.");
+
+          img.onerror = () => {
+            alert("Invalid image file. Please upload a PNG or JPEG image.");
+            preview.src = "";
+            preview.style.display = "none";
+            note.textContent =
+              "Invalid file type. Please upload a PNG or JPEG image.";
+            loader_favicon.style.display = "none"; // hide on error
+          };
+
           img.src = e.target.result;
         };
+
         reader.readAsDataURL(faviconFile);
-      }
-
-      function extractPalette(img, container) {
-        const canvas = document.createElement("canvas");
-        const ctx = canvas.getContext("2d");
-        if (!img.naturalWidth || !img.naturalHeight) return;
-
-        canvas.width = img.naturalWidth;
-        canvas.height = img.naturalHeight;
-        ctx.drawImage(img, 0, 0);
-
-        const data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
-        const colors = {};
-
-        for (let i = 0; i < data.length; i += 4) {
-          const r = Math.round(data[i] / 32) * 32;
-          const g = Math.round(data[i + 1] / 32) * 32;
-          const b = Math.round(data[i + 2] / 32) * 32;
-          const key = `${r},${g},${b}`;
-          colors[key] = (colors[key] || 0) + 1;
-        }
-
-        const topColors = Object.entries(colors)
-          .sort((a, b) => b[1] - a[1])
-          .slice(0, 3)
-          .map(([key]) => `rgb(${key})`);
-
-        container.innerHTML = "";
-        topColors.forEach((color) => {
-          const swatch = document.createElement("div");
-          swatch.className = "w-4 h-4 rounded shadow";
-          swatch.style.backgroundColor = color;
-          container.appendChild(swatch);
-        });
-      }
-
-      function safeExtractPalette(img, container, attempt = 0) {
-        if (img.naturalWidth === 0 && attempt < 5) {
-          setTimeout(
-            () => safeExtractPalette(img, container, attempt + 1),
-            100
-          );
-        } else {
-          extractPalette(img, container);
-        }
       }
 
       function setupNav() {
@@ -1644,32 +1813,9 @@
       document.addEventListener("DOMContentLoaded", () => {
         setupNav();
         document.getElementById("year").textContent = new Date().getFullYear();
-
-        document.querySelectorAll(".bg-option").forEach((option) => {
-          const img = option.querySelector("img");
-          const palette = option.querySelector(".palette");
-
-          const generate = () => safeExtractPalette(img, palette);
-          if (img.complete) {
-            img.decode().then(generate).catch(generate);
-          } else {
-            img.onload = () => img.decode().then(generate).catch(generate);
-          }
-        });
       });
 
-      window.addEventListener("load", () => {
-        requestAnimationFrame(() => {
-          setTimeout(() => {
-            const loadingCircle = document.getElementById("loading-circle");
-            const content = document.querySelector(
-              ".container_universal_hidden"
-            );
-            if (loadingCircle) loadingCircle.classList.add("hidden");
-            if (content) content.classList.add("show");
-          }, 200);
-        });
-      });
+      window.addEventListener("load", () => {});
     </script>
 
     <script>
@@ -1761,14 +1907,26 @@
         });
       }
 
+      function toTitleCase(str) {
+        return str
+          .toLowerCase()
+          .split(" ")
+          .filter((word) => word.length > 0) // avoid extra spaces
+          .map((word) => word[0].toUpperCase() + word.slice(1))
+          .join(" ");
+      }
+
       function addCustomRole() {
         const val = otherProfession.value.trim();
         if (!val) return;
 
+        const capitalizedVal = toTitleCase(val);
+
         userInteracted = true;
 
         const exists = [...container.querySelectorAll("label span")].some(
-          (el) => el.textContent.trim().toLowerCase() === val.toLowerCase()
+          (el) =>
+            el.textContent.trim().toLowerCase() === capitalizedVal.toLowerCase()
         );
         if (exists) {
           showError("This role already exists.");
@@ -1794,7 +1952,7 @@
         input.addEventListener("change", handleCheckboxChange);
 
         const span = document.createElement("span");
-        span.textContent = val;
+        span.textContent = capitalizedVal;
 
         label.appendChild(input);
         label.appendChild(span);

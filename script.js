@@ -489,7 +489,6 @@ function getRandomMessageContact() {
   const randomIndex = Math.floor(Math.random() * messages_contact.length);
   return messages_contact[randomIndex];
 }
-
 const iconMap = {
   twitter: "fa-brands fa-x-twitter",
   email: "fa-solid fa-envelope",
@@ -500,63 +499,115 @@ const iconMap = {
   monkeytype: "fa-solid fa-keyboard",
 };
 
-document.getElementById("addSocialBtn").addEventListener("click", () => {
-  const manualPlatform = document.getElementById("socialPlatform").value;
-  const url = document.getElementById("socialURL").value.trim();
+const socialFields = document.getElementById("socialFields");
+const addBtn = document.getElementById("addSocialBtn");
+const platformSelect = document.getElementById("socialPlatform");
+const urlInput = document.getElementById("socialURL");
 
-  if (!url) return;
+addBtn.addEventListener("click", () => {
+  const manualPlatform = platformSelect.value;
+  const url = urlInput.value.trim();
+
+  if (!url) {
+    alert("Please enter a valid URL.");
+    return;
+  }
+  if (manualPlatform === "icon_none") {
+    alert("Please select a social media platform.");
+    return;
+  }
 
   const detectedPlatform = detectPlatformFromURL(url) || manualPlatform;
+  if (detectedPlatform === "icon_none") return;
 
   const title =
     detectedPlatform.charAt(0).toUpperCase() + detectedPlatform.slice(1);
 
-  if (detectedPlatform === "icon_none") return;
-
-  const icon =
+  const iconClass =
     iconMap[detectedPlatform] ||
     (detectedPlatform !== "email"
       ? `fa-brands fa-${detectedPlatform}`
       : iconMap.default);
 
-  const field = document.createElement("input");
-  field.type = "hidden";
-  field.className = "social-input";
-  field.dataset.icon = icon;
-  field.dataset.title = detectedPlatform;
-  field.value = url;
-  document.getElementById("socialFields").appendChild(field);
+  createSocialLinkCard(url, detectedPlatform, iconClass, title);
 
-  const iconHTML = `
-  <a
-    href="${url}"
-    target="_blank"
-    title="${title}"
-    class="group relative w-12 h-12 md:w-14 md:h-14 flex items-center justify-center rounded-full bg-white/5 border border-white/20 backdrop-blur-md shadow hover:shadow-lg transition-all duration-300 hover:scale-110 hover:border-white/30"
-  >
-    <div class="absolute inset-0 rounded-full bg-white/10 duration-300"></div>
-    <i class="${icon} text-white text-lg md:text-xl z-10 transition-transform duration-300 group-hover:scale-110"></i>
-  </a>`;
+  urlInput.value = "";
+  platformSelect.value = "icon_none";
+});
 
-  const wrapper = document.createElement("div");
-  wrapper.className = "relative inline-block group";
+function createSocialLinkCard(url, platform, iconClass, title) {
+  // Hidden input to store value in form or state
+  const hiddenInput = document.createElement("input");
+  hiddenInput.type = "hidden";
+  hiddenInput.className = "social-input";
+  hiddenInput.dataset.icon = iconClass;
+  hiddenInput.dataset.title = platform;
+  hiddenInput.value = url;
 
+  // Card container
+  const card = document.createElement("div");
+  card.className =
+    "relative flex items-center space-x-3 bg-zinc-900 rounded-full px-5 py-2 border border-zinc-700 shadow-md cursor-pointer transition-all duration-300 hover:bg-zinc-800";
+
+  // Social link
+  const link = document.createElement("a");
+  link.href = url;
+  link.target = "_blank";
+  link.title = title;
+  link.className = "flex items-center gap-3 text-white no-underline";
+
+  const icon = document.createElement("i");
+  icon.className = `${iconClass} text-2xl`;
+  icon.setAttribute("aria-hidden", "true");
+
+  const textSpan = document.createElement("span");
+  textSpan.textContent = title;
+  textSpan.className = "font-semibold text-sm md:text-base";
+
+  link.appendChild(icon);
+  link.appendChild(textSpan);
+
+  // Remove button (hidden by default)
   const removeBtn = document.createElement("button");
-  removeBtn.innerHTML = "&times;";
+  removeBtn.type = "button";
   removeBtn.className =
-    "absolute -top-2 -right-2 bg-red-600 text-white w-5 h-5 text-xs rounded-full hover:bg-red-700 ";
-  removeBtn.title = "Remove";
+    "absolute top-1 -right-2 bg-red-600 text-white w-6 h-6 rounded-full flex items-center justify-center opacity-0 transition-opacity duration-200 hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-400";
+  removeBtn.title = `Remove ${title} link`;
+  removeBtn.setAttribute("aria-label", `Remove ${title} link`);
+  removeBtn.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4" viewBox="0 0 24 24">
+      <line x1="18" y1="6" x2="6" y2="18"/>
+      <line x1="6" y1="6" x2="18" y2="18"/>
+    </svg>`;
+
   removeBtn.addEventListener("click", () => {
-    field.remove();
-    wrapper.remove();
+    hiddenInput.remove();
+    card.remove();
   });
 
-  wrapper.innerHTML = iconHTML;
-  wrapper.appendChild(removeBtn);
-  document.getElementById("socialFields").appendChild(wrapper);
+  // Show remove button on card hover
+  card.addEventListener("mouseenter", () => {
+    removeBtn.style.opacity = "1";
+  });
+  card.addEventListener("mouseleave", () => {
+    removeBtn.style.opacity = "0";
+  });
 
-  document.getElementById("socialURL").value = "";
-});
+  card.appendChild(link);
+  card.appendChild(removeBtn);
+
+  socialFields.appendChild(hiddenInput);
+  socialFields.appendChild(card);
+
+  // Animate fade-in and slide-up
+  card.style.opacity = 0;
+  card.style.transform = "translateY(10px)";
+  card.style.transition = "opacity 0.3s ease, transform 0.3s ease";
+  requestAnimationFrame(() => {
+    card.style.opacity = 1;
+    card.style.transform = "translateY(0)";
+  });
+}
 
 function detectPlatformFromURL(url) {
   try {
@@ -601,6 +652,7 @@ function detectPlatformFromURL(url) {
     return null;
   }
 }
+
 function generateSocialLinksHTML() {
   const socialInputs = document.querySelectorAll(".social-input");
   let socialIconsHTML = "";
@@ -672,6 +724,7 @@ const submitBtn = document.getElementById("submitBtn");
 const btnText = document.getElementById("btnText");
 const loader = document.getElementById("loader");
 const tagline = document.getElementById("tagline");
+
 const tagline_value = tagline.value;
 
 form.addEventListener("submit", async function (e) {
@@ -713,12 +766,13 @@ form.addEventListener("submit", async function (e) {
     last_name_raw.slice(1).toLowerCase();
   const fullName = `${first_name} ${last_name}`;
   const email = document.getElementById("email").value;
+  const website_title = document.getElementById("title_website").value;
 
   const fontFiles = [
     "Font/Bethasia.otf",
     "Font/TheSomething.otf",
     "Font/Apricot.otf",
-    "Font/Dream Avenue.ttf", 
+    "Font/Dream Avenue.ttf",
     "Font/TanBuster.otf",
     "Font/Harry Potter.otf",
   ];
@@ -762,7 +816,8 @@ form.addEventListener("submit", async function (e) {
     .replace(/{{TITLE_FONT}}/g, selectedTitleFont)
     .replace(/{{bg_color}}/g, selectedBgColor)
     .replace(/{{bg_file}}/g, selectedImageSrc)
-    .replace(/{{after_footer}}/g, afterFooterDiv());
+    .replace(/{{after_footer}}/g, afterFooterDiv())
+    .replace(/{{website_title}}/g, website_title);
 
   let thanks = thankyou
     .replace(/{{TITLE}}/g, first_name)

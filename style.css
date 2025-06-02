@@ -60,7 +60,7 @@ h4 {
   color: #6e728996;
 }
 .dim_text {
-  color: #6e7289;
+  color: #7f7f7f;
 }
 .dark_background_color {
   background-color: #1c1f2a;
@@ -83,12 +83,12 @@ h4 {
   height: 35vh;
   background: linear-gradient(
     to top,
-    #10121b 0%,
-    rgba(16, 18, 27, 0.95) 20%,
-    rgba(16, 18, 27, 0.75) 40%,
-    rgba(16, 18, 27, 0.45) 60%,
-    rgba(16, 18, 27, 0.2) 80%,
-    rgba(16, 18, 27, 0) 100%
+    #090909 0%,
+    rgba(9, 9, 9, 0.95) 20%,
+    rgba(9, 9, 9, 0.75) 40%,
+    rgba(9, 9, 9, 0.45) 60%,
+    rgba(9, 9, 9, 0.2) 80%,
+    rgba(9, 9, 9, 0) 100%
   );
   pointer-events: none;
   z-index: 10;
@@ -100,12 +100,12 @@ h4 {
   height: 25vh;
   background: linear-gradient(
     to bottom,
-    #10121b 0%,
-    rgba(16, 18, 27, 0.95) 20%,
-    rgba(16, 18, 27, 0.75) 40%,
-    rgba(16, 18, 27, 0.45) 60%,
-    rgba(16, 18, 27, 0.2) 80%,
-    rgba(16, 18, 27, 0) 100%
+    #090909 0%,
+    rgba(9, 9, 9, 0.95) 20%,
+    rgba(9, 9, 9, 0.75) 40%,
+    rgba(9, 9, 9, 0.45) 60%,
+    rgba(9, 9, 9, 0.2) 80%,
+    rgba(9, 9, 9, 0) 100%
   );
   pointer-events: none;
   z-index: 10;
@@ -127,7 +127,7 @@ h4 {
       rgba(0, 0, 0, 0.5),
       rgba(0, 0, 0, 0.5)
     ),
-    url("./Media/Background.webp");
+    url("./Media/portfolio_builder.png");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -150,7 +150,7 @@ h4 {
       rgba(0, 0, 0, 0.6),
       rgba(0, 0, 0, 0.5)
     ),
-    url("./Media/Background.webp");
+    url("./Media/portfolio_builder.png");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
@@ -518,4 +518,41 @@ nav input {
 
 #socialFields a {
   margin-right: 10px;
+}
+
+.glimmer-button {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.glimmer-button::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -220%;
+  width: 300%;
+  height: 200%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 30%,
+    rgba(255, 255, 255, 0.15) 45%,
+    rgba(255, 255, 255, 0.25) 50%,
+    rgba(255, 255, 255, 0.15) 55%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  z-index: 1;
+  pointer-events: none;
+  opacity: 1;
+  border-radius: inherit;
+  animation: shine-flow 4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+@keyframes shine-flow {
+  0% {
+    left: -220%;
+  }
+  100% {
+    left: 150%;
+  }
 }
