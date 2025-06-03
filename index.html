@@ -1993,16 +1993,26 @@
       fontSelect.addEventListener("change", updateFont);
       window.addEventListener("DOMContentLoaded", updateFont);
 
-      window.onload = () => {
+      let contentShown = false;
+
+      function showContent() {
+        if (contentShown) return;
+        contentShown = true;
+
         const loadingCircle = document.getElementById("loading-circle");
         const content = document.querySelector(".container_universal_hidden");
 
         if (loadingCircle) loadingCircle.classList.add("hidden");
+        if (content) {
+          setTimeout(() => {
+            content.classList.add("show");
+          }, 500);
+        }
+      }
 
-        setTimeout(() => {
-          if (content) content.classList.add("show");
-        }, 500);
-      };
+      setTimeout(showContent, 2000);
+
+      window.onload = showContent;
     </script>
   </body>
 </html>
