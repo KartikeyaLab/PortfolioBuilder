@@ -76,7 +76,7 @@ document.querySelectorAll('input[name="loaderOption"]').forEach((input) => {
 });
 
 // Global variables with default values
-let selectedImageSrc = "./Media/Background.webp";
+let selectedImageSrc = "./Assets/Background.webp";
 let selectedBgColor = "";
 
 // Apply default ring to the default image if it exists
@@ -547,7 +547,7 @@ function createSocialLinkCard(url, platform, iconClass, title) {
   // Card container
   const card = document.createElement("div");
   card.className =
-    "relative flex items-center space-x-3 bg-zinc-900 rounded-full px-5 py-2 border border-zinc-700 shadow-md cursor-pointer transition-all duration-300 hover:bg-zinc-800";
+    "relative flex items-center space-x-3 rounded-full px-5 py-2 border border-zinc-700 shadow-md cursor-pointer transition-all duration-300 ";
 
   // Social link
   const link = document.createElement("a");
@@ -764,27 +764,35 @@ form.addEventListener("submit", async function (e) {
   const last_name =
     last_name_raw.charAt(0).toUpperCase() +
     last_name_raw.slice(1).toLowerCase();
-  const fullName = `${first_name} ${last_name}`;
+  // const fullName = `${first_name} ${last_name}`;
   const email = document.getElementById("email").value;
   const website_title = document.getElementById("title_website").value;
+  // Map font names to their file paths
+  const fontMap = {
+    Bethasia: "Font/Bethasia.otf",
+    TheSomething: "Font/TheSomething.otf",
+    Apricot: "Font/Apricot.otf",
+    Ceria: "Font/Ceria.otf",
+    Brusher: "Font/Brusher.ttf",
+    "Dream Avenue": "Font/Dream Avenue.ttf",
+  };
 
-  const fontFiles = [
-    "Font/Bethasia.otf",
-    "Font/TheSomething.otf",
-    "Font/Apricot.otf",
-    "Font/Dream Avenue.ttf",
-    "Font/TanBuster.otf",
-    "Font/Harry Potter.otf",
-  ];
+  // Determine which font files to include: selected + default "TheSomething"
+  const fontsToInclude = [
+    fontMap[selectedTitleFont],
+    fontMap["TheSomething"],
+  ].filter(Boolean);
 
+  // Fetch template files + only needed fonts
   const [templateRes, templateRes1, cssRes, ...fontResArray] =
     await Promise.all([
       fetch("template.html"),
       fetch("Thank you.html"),
       fetch("Styles/style.css"),
-      ...fontFiles.map((font) => fetch(font)),
+      ...fontsToInclude.map((font) => fetch(font)),
     ]);
 
+  // Get text and array buffers from fetched responses
   const [htmlTemplate, thankyou, cssContent, ...fontBuffers] =
     await Promise.all([
       templateRes.text(),
@@ -793,6 +801,7 @@ form.addEventListener("submit", async function (e) {
       ...fontResArray.map((res) => res.arrayBuffer()),
     ]);
 
+  // Replace placeholders in main HTML template
   let html = htmlTemplate
     .replace(/{{TITLE}}/g, first_name)
     .replace(/{{Email}}/g, email)
@@ -819,43 +828,31 @@ form.addEventListener("submit", async function (e) {
     .replace(/{{after_footer}}/g, afterFooterDiv())
     .replace(/{{website_title}}/g, website_title);
 
+  // Replace placeholders in thank-you page template
   let thanks = thankyou
     .replace(/{{TITLE}}/g, first_name)
     .replace(/{{TITLE_FONT}}/g, selectedTitleFont)
     .replace(/{{bg_color}}/g, selectedBgColor)
     .replace(/{{bg_file}}/g, selectedImageSrc);
 
+  // Create zip and add files
   const zip = new JSZip();
   zip.file("index.html", html);
   zip.file("style.css", cssContent);
-  zip.file("Thank you.html", thanks);
+  zip.file("thankYou.html", thanks);
 
-  const fonts = zip.folder("fonts");
-  fontFiles.forEach((file, i) => {
-    const fileName = file.split("/").pop();
-    fonts.file(fileName, fontBuffers[i]);
+  // Add fonts folder with only required fonts
+  const fontsFolder = zip.folder("Fonts");
+  fontsToInclude.forEach((fontPath, i) => {
+    const fileName = fontPath.split("/").pop();
+    fontsFolder.file(fileName, fontBuffers[i]);
   });
-  const mediaFolder = zip.folder("Media");
-  const mediaFiles = [
-    "Media/1.webp",
-    "Media/2.webp",
-    "Media/3.webp",
-    "Media/4.webp",
-    "Media/5.webp",
-    "Media/6.webp",
-    "Media/7.webp",
-    "Media/8.webp",
-    "Media/9.webp",
-    "Media/Background-Dark.webp",
-    "Media/Background.webp",
-    "Media/Black-Background.webp",
-  ];
 
   const selectedImg = document.querySelector(".bg-thumb.ring-2");
   const selectedMediaPath = selectedImg?.getAttribute("src");
 
   if (selectedMediaPath) {
-    const mediaFolder = zip.folder("Media");
+    const mediaFolder = zip.folder("Assets");
 
     const response = await fetch(selectedMediaPath);
     const buffer = await response.arrayBuffer();

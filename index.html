@@ -158,299 +158,6 @@
       src="https://kit.fontawesome.com/542131e2b7.js"
       crossorigin="anonymous"
     ></script>
-
-    <style>
-      @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-      body {
-        font-family: "Montserrat", sans-serif;
-        background-color: #090909;
-      }
-
-      #socialFields {
-        margin-bottom: 10px;
-      }
-
-      #bgPalette {
-        margin-top: 20px;
-      }
-
-      .browser-window {
-        background-color: #fff;
-        border-radius: 12px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-        width: clamp(320px, 90%, 900px);
-        overflow: hidden;
-      }
-
-      .title-bar {
-        background-color: #f5f5f5;
-        padding: 12px 15px;
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        border-bottom: 1px solid #ddd;
-        border-radius: 12px 12px 0 0;
-      }
-
-      .favicon {
-        width: 20px;
-        height: 20px;
-        margin: 0 8px;
-      }
-
-      .title-buttons {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-      }
-
-      .close-button,
-      .minimize-button,
-      .maximize-button {
-        width: 12px;
-        height: 12px;
-        border-radius: 50%;
-        flex-shrink: 0;
-        cursor: pointer;
-      }
-
-      .close-button {
-        background-color: #ff5e57;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-      }
-
-      .close-button:hover {
-        background-color: #e04842;
-        transform: scale(1.1);
-      }
-
-      .minimize-button {
-        background-color: #ffb900;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-      }
-
-      .minimize-button:hover {
-        background-color: #e0a700;
-        transform: scale(1.1);
-      }
-
-      .maximize-button {
-        background-color: #00c853;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-      }
-
-      .maximize-button:hover {
-        background-color: #00a944;
-        transform: scale(1.1);
-      }
-
-      .title-text {
-        flex-grow: 1;
-        text-align: center;
-        font-size: 16px;
-        font-weight: 600;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        color: #2c3e50;
-        pointer-events: none;
-      }
-      .text_url {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        display: flex;
-        align-items: center;
-      }
-
-      .address-bar {
-        background-color: #fff;
-        padding: 10px 15px;
-        display: flex;
-        align-items: center;
-        border-bottom: 1px solid #ddd;
-      }
-
-      .nav-buttons {
-        display: flex;
-        margin-right: 12px;
-        color: #000;
-      }
-
-      .nav-button {
-        background: none;
-        border: none;
-        padding: 6px;
-        margin-right: 6px;
-        cursor: pointer;
-        opacity: 0.6;
-        transition: opacity 0.2s ease, transform 0.2s ease;
-      }
-
-      .nav-button:hover {
-        opacity: 1;
-        transform: scale(1.1);
-      }
-
-      .input-wrapper {
-        position: relative;
-        flex-grow: 1;
-        display: flex;
-        align-items: center;
-      }
-
-      .secure-icon {
-        position: absolute;
-        left: 12px;
-        top: 50%;
-        transform: translateY(-50%);
-        pointer-events: none;
-        z-index: 1;
-      }
-
-      .url-input {
-        width: 100%;
-        padding: 10px 10px 10px 40px;
-        border: 1px solid #ccc;
-        border-radius: 50px;
-        background-color: #f9f9f9;
-        font-size: 0.95em;
-        color: #222;
-        transition: border 0.2s ease, box-shadow 0.2s ease;
-      }
-
-      .url-input:focus {
-        outline: none;
-        border-color: #4caf50;
-        box-shadow: 0 0 0 2px rgba(76, 175, 80, 0.2);
-      }
-
-      .content-area {
-        background-color: #fff;
-        height: 80px;
-        overflow: hidden;
-        font-size: 1em;
-        line-height: 1.6;
-        color: #444;
-      }
-
-      #faviconPreview {
-        display: none;
-      }
-
-      .flex.flex-wrap {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 12px;
-        justify-content: flex-start;
-      }
-
-      .flex.flex-wrap > label {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        background-color: #1e1f2a;
-        padding: 12px 16px;
-        border-radius: 10px;
-        cursor: pointer;
-        transition: background-color 0.25s ease, transform 0.2s ease,
-          box-shadow 0.3s ease;
-        box-shadow: 0 0 0 1px #2c2f3a;
-        flex: 1 1 160px;
-      }
-
-      .flex.flex-wrap > label:hover {
-        background-color: #2a2c39;
-        transform: scale(1.03);
-        box-shadow: 0 0 0 2px #3f4a6b;
-      }
-
-      label.role-label {
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        background-color: #2a2c3b;
-        color: #ffffff;
-        padding: 12px 14px;
-        border-radius: 8px;
-        cursor: pointer;
-        transition: background-color 0.3s ease, transform 0.2s ease;
-        flex-wrap: wrap;
-      }
-      label.role-label:hover {
-        background-color: #343648;
-        transform: scale(1.02);
-      }
-
-      .profession {
-        appearance: none;
-        -webkit-appearance: none;
-        width: 20px;
-        height: 20px;
-        border: 2px solid #5c5f70;
-        border-radius: 4px;
-        background-color: #292a33;
-        position: relative;
-        cursor: pointer;
-        transition: all 0.2s ease-in-out;
-      }
-      .profession:hover {
-        border-color: #7d81a1;
-      }
-      .profession:checked {
-        background-color: #4263a4;
-        border-color: #4263a4;
-      }
-      .profession:checked::after {
-        content: "";
-        position: absolute;
-        left: 5px;
-        top: 2px;
-        width: 6px;
-        height: 12px;
-        border: solid white;
-        border-width: 0 2px 2px 0;
-        transform: rotate(45deg);
-      }
-
-      .other-input {
-        flex: 1;
-        min-width: 200px;
-        padding: 8px 12px;
-        background-color: #1e1f2a;
-        border: 1px solid #444;
-        color: white;
-        border-radius: 6px;
-        font-size: 14px;
-      }
-      .other-input::placeholder {
-        color: #999;
-        font-style: italic;
-      }
-
-      .add-btn {
-        padding: 8px 12px;
-        color: white;
-        border: none;
-        border-radius: 6px;
-        font-size: 14px;
-        cursor: pointer;
-        transition: background-color 0.2s ease;
-      }
-
-      .publish_image {
-        border-radius: 15px;
-        margin: 18px 0;
-      }
-
-      #fontPreview {
-        transition: font 0.3s ease, color 0.3s ease, opacity 0.3s ease;
-      }
-
-      .top_margin {
-        margin-top: 15px;
-      }
-    </style>
   </head>
   <body class="text-white">
     <div id="loading-circle" class="loading-circle">
@@ -550,7 +257,7 @@
         <form id="siteForm">
           <div class="max-w-6xl mx-auto mt-10">
             <div
-              class="bg-zinc-900 rounded-2xl shadow-2xl border border-zinc-700 p-6 md:p-8"
+              class="dark_background_color rounded-2xl shadow-2xl border border-zinc-700 p-6 md:p-8"
             >
               <!-- Header -->
               <h2
@@ -576,8 +283,9 @@
                   type="text"
                   id="first_name"
                   placeholder="Enter your first name"
-                  class="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg placeholder-zinc-500 placeholder:italic text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  class="w-full px-4 py-3 background_color_placeholder text-white rounded-lg placeholder_color placeholder:italic text-sm"
                   required
+                  value="Kartikeya"
                 />
               </div>
 
@@ -593,7 +301,8 @@
                   type="text"
                   id="last_name"
                   placeholder="Enter your last name (Optional)"
-                  class="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg placeholder-zinc-500 placeholder:italic text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  class="w-full px-4 py-3 background_color_placeholder text-white rounded-lg placeholder_color placeholder:italic text-sm"
+                  value="Kartikeya"
                 />
               </div>
 
@@ -609,8 +318,9 @@
                   type="email"
                   id="email"
                   placeholder="Enter your email address"
-                  class="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg placeholder-zinc-500 placeholder:italic text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  class="w-full px-4 py-3 background_color_placeholder text-white rounded-lg placeholder_color placeholder:italic text-sm"
                   required
+                  value="Kartikeya@d"
                 />
               </div>
 
@@ -626,8 +336,9 @@
                   type="text"
                   id="tagline"
                   placeholder="Describe your vibe in 5 words"
-                  class="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg placeholder-zinc-500 placeholder:italic text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  class="w-full px-4 py-3 background_color_placeholder text-white rounded-lg placeholder_color placeholder:italic text-sm"
                   required
+                  value="Kartikeya"
                 />
               </div>
 
@@ -643,8 +354,9 @@
                   type="text"
                   id="title_website"
                   placeholder="Enter your website name"
-                  class="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg placeholder-zinc-500 placeholder:italic text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  class="w-full px-4 py-3 background_color_placeholder text-white rounded-lg placeholder_color placeholder:italic text-sm"
                   required
+                  value="Kartikeya"
                 />
               </div>
               <!-- About -->
@@ -659,17 +371,17 @@
                   id="aboutSection"
                   rows="4"
                   placeholder="So, who are you really?"
-                  class="w-full px-4 py-3 bg-zinc-800 border border-zinc-700 text-white rounded-lg placeholder-zinc-500 placeholder:italic text-sm focus:ring-2 focus:ring-blue-500 focus:outline-none"
+                  class="w-full px-4 py-3 background_color_placeholder text-white rounded-lg placeholder_color placeholder:italic text-sm"
                   required
-                ></textarea>
+                >
+Hello</textarea
+                >
               </div>
             </div>
           </div>
 
           <div class="max-w-6xl mx-auto mt-8">
-            <div
-              class="bg-zinc-900 border border-zinc-700 rounded-2xl shadow-lg p-6 md:p-8"
-            >
+            <div class="dark_background_color rounded-2xl shadow-lg p-6 md:p-8">
               <h2
                 class="text-2xl font-semibold text-white mb-2 text-center md:text-left"
               >
@@ -686,13 +398,9 @@
                 <!-- Profession Cards -->
                 <!-- Repeat this label block for each role -->
                 <label
-                  class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+                  class="flex items-center gap-2 background_color_placeholder transition rounded-lg px-4 py-3 cursor-pointer profession_hover"
                 >
-                  <input
-                    type="checkbox"
-                    class="profession accent-blue-500"
-                    id="developer"
-                  />
+                  <input type="checkbox" class="profession" id="developer" />
                   <span
                     class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
                     >Developer</span
@@ -700,11 +408,12 @@
                 </label>
 
                 <label
-                  class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+                  class="flex items-center gap-2 background_color_placeholder transition rounded-lg px-4 py-3 cursor-pointer profession_hover"
                 >
                   <input
                     type="checkbox"
-                    class="profession accent-blue-500"
+                    checked
+                    class="profession"
                     id="designer"
                   />
                   <span
@@ -714,12 +423,13 @@
                 </label>
 
                 <label
-                  class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+                  class="flex items-center gap-2 background_color_placeholder transition rounded-lg px-4 py-3 cursor-pointer profession_hover"
                 >
                   <input
                     type="checkbox"
-                    class="profession accent-blue-500"
+                    class="profession"
                     id="writer"
+                    checked
                   />
                   <span
                     class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
@@ -728,13 +438,9 @@
                 </label>
 
                 <label
-                  class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+                  class="flex items-center gap-2 background_color_placeholder transition rounded-lg px-4 py-3 cursor-pointer profession_hover"
                 >
-                  <input
-                    type="checkbox"
-                    class="profession accent-blue-500"
-                    id="photographer"
-                  />
+                  <input type="checkbox" class="profession" id="photographer" />
                   <span
                     class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
                     >Photographer</span
@@ -743,13 +449,9 @@
 
                 <!-- Add the rest similarly with same <span> styling -->
                 <label
-                  class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+                  class="flex items-center gap-2 background_color_placeholder transition rounded-lg px-4 py-3 cursor-pointer profession_hover"
                 >
-                  <input
-                    type="checkbox"
-                    class="profession accent-blue-500"
-                    id="musician"
-                  />
+                  <input type="checkbox" class="profession" id="musician" />
                   <span
                     class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
                     >Musician</span
@@ -757,13 +459,9 @@
                 </label>
 
                 <label
-                  class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+                  class="flex items-center gap-2 background_color_placeholder transition rounded-lg px-4 py-3 cursor-pointer profession_hover"
                 >
-                  <input
-                    type="checkbox"
-                    class="profession accent-blue-500"
-                    id="editor"
-                  />
+                  <input type="checkbox" class="profession" id="editor" />
                   <span
                     class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
                     >Editor</span
@@ -771,13 +469,9 @@
                 </label>
 
                 <label
-                  class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+                  class="flex items-center gap-2 background_color_placeholder transition rounded-lg px-4 py-3 cursor-pointer profession_hover"
                 >
-                  <input
-                    type="checkbox"
-                    class="profession accent-blue-500"
-                    id="videographer"
-                  />
+                  <input type="checkbox" class="profession" id="videographer" />
                   <span
                     class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
                     >Videographer</span
@@ -785,13 +479,9 @@
                 </label>
 
                 <label
-                  class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+                  class="flex items-center gap-2 background_color_placeholder transition rounded-lg px-4 py-3 cursor-pointer profession_hover"
                 >
-                  <input
-                    type="checkbox"
-                    class="profession accent-blue-500"
-                    id="illustrator"
-                  />
+                  <input type="checkbox" class="profession" id="illustrator" />
                   <span
                     class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
                     >Illustrator</span
@@ -799,13 +489,9 @@
                 </label>
 
                 <label
-                  class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+                  class="flex items-center gap-2 background_color_placeholder transition rounded-lg px-4 py-3 cursor-pointer profession_hover"
                 >
-                  <input
-                    type="checkbox"
-                    class="profession accent-blue-500"
-                    id="animator"
-                  />
+                  <input type="checkbox" class="profession" id="animator" />
                   <span
                     class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
                     >Animator</span
@@ -813,11 +499,11 @@
                 </label>
 
                 <label
-                  class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+                  class="flex items-center gap-2 background_color_placeholder transition rounded-lg px-4 py-3 cursor-pointer profession_hover"
                 >
                   <input
                     type="checkbox"
-                    class="profession accent-blue-500"
+                    class="profession"
                     id="content-creator"
                   />
                   <span
@@ -827,13 +513,9 @@
                 </label>
 
                 <label
-                  class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+                  class="flex items-center gap-2 background_color_placeholder transition rounded-lg px-4 py-3 cursor-pointer profession_hover"
                 >
-                  <input
-                    type="checkbox"
-                    class="profession accent-blue-500"
-                    id="artist"
-                  />
+                  <input type="checkbox" class="profession" id="artist" />
                   <span
                     class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
                     >Artist</span
@@ -841,13 +523,9 @@
                 </label>
 
                 <label
-                  class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+                  class="flex items-center gap-2 background_color_placeholder transition rounded-lg px-4 py-3 cursor-pointer profession_hover"
                 >
-                  <input
-                    type="checkbox"
-                    class="profession accent-blue-500"
-                    id="coder"
-                  />
+                  <input type="checkbox" class="profession" id="coder" />
                   <span
                     class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
                     >Coder</span
@@ -855,13 +533,9 @@
                 </label>
 
                 <label
-                  class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+                  class="flex items-center gap-2 background_color_placeholder transition rounded-lg px-4 py-3 cursor-pointer profession_hover"
                 >
-                  <input
-                    type="checkbox"
-                    class="profession accent-blue-500"
-                    id="youtuber"
-                  />
+                  <input type="checkbox" class="profession" id="youtuber" />
                   <span
                     class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
                     >YouTuber</span
@@ -869,13 +543,9 @@
                 </label>
 
                 <label
-                  class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+                  class="flex items-center gap-2 background_color_placeholder transition rounded-lg px-4 py-3 cursor-pointer profession_hover"
                 >
-                  <input
-                    type="checkbox"
-                    class="profession accent-blue-500"
-                    id="traveler"
-                  />
+                  <input type="checkbox" class="profession" id="traveler" />
                   <span
                     class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
                     >Traveler</span
@@ -883,13 +553,9 @@
                 </label>
 
                 <label
-                  class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+                  class="flex items-center gap-2 background_color_placeholder transition rounded-lg px-4 py-3 cursor-pointer profession_hover"
                 >
-                  <input
-                    type="checkbox"
-                    class="profession accent-blue-500"
-                    id="teacher"
-                  />
+                  <input type="checkbox" class="profession" id="teacher" />
                   <span
                     class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
                     >Teacher</span
@@ -897,13 +563,9 @@
                 </label>
 
                 <label
-                  class="flex items-center gap-2 bg-zinc-800 hover:bg-zinc-700 transition rounded-lg px-4 py-3 cursor-pointer"
+                  class="flex items-center gap-2 background_color_placeholder transition rounded-lg px-4 py-3 cursor-pointer profession_hover"
                 >
-                  <input
-                    type="checkbox"
-                    class="profession accent-blue-500"
-                    id="student"
-                  />
+                  <input type="checkbox" class="profession" id="student" />
                   <span
                     class="truncate overflow-hidden whitespace-nowrap max-w-[100px]"
                     >Student</span
@@ -912,18 +574,22 @@
               </div>
 
               <!-- Error message -->
-              <p id="roleError" class="text-red-500 text-sm mt-3 hidden">
+              <p
+                id="roleError"
+                class="text-sm mt-3 hidden"
+                style="color: #ff6b6b"
+              >
                 Please select between 2 and 4 roles.
               </p>
 
               <!-- Other profession input -->
-              <div class="mt-6 space-y-2">
+              <div class="mt-6 ml-4 space-y-2">
                 <!-- Checkbox on its own line -->
                 <label class="flex items-center gap-2 text-sm text-white">
                   <input
                     type="checkbox"
                     id="otherCheckbox"
-                    class="profession accent-blue-500"
+                    class="profession"
                   />
                   <span>Other:</span>
                 </label>
@@ -933,13 +599,13 @@
                   <input
                     type="text"
                     id="otherProfession"
-                    class="flex-1 px-3 py-2 bg-zinc-800 border border-zinc-600 text-white rounded-lg hidden"
+                    class="w-full px-4 py-3 background_color_placeholder text-white rounded-lg placeholder_color placeholder:italic text-sm"
                     placeholder="Enter your custom role"
                     disabled
                   />
                   <button
                     id="addProfessionBtn"
-                    class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-lg text-sm hidden"
+                    class="px-4 py-2 text-white rounded-lg text-sm hidden button_background"
                   >
                     Add
                   </button>
@@ -949,7 +615,7 @@
           </div>
 
           <div
-            class="bg-zinc-900 rounded-xl shadow-lg p-6 max-w-6xl mx-auto mt-10 border border-zinc-700"
+            class="dark_background_color rounded-xl shadow-lg p-6 max-w-6xl mx-auto mt-10 border border-zinc-700"
           >
             <label class="block text-sm mb-1 text-zinc-400 mt-4 md:mt-6">
               <h2
@@ -994,13 +660,6 @@
               </div>
 
               <!-- Background Option 3 -->
-              <div class="bg-option flex flex-col items-center space-y-2">
-                <img
-                  src="./Media/3.webp"
-                  data-bg-color="#0c191c"
-                  class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-                />
-              </div>
 
               <!-- Background Option 4 -->
               <div class="bg-option flex flex-col items-center space-y-2">
@@ -1055,6 +714,14 @@
                   class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
                 />
               </div>
+              <!-- Background Option 14 -->
+              <div class="bg-option flex flex-col items-center space-y-2">
+                <img
+                  src="./Media/12.png"
+                  data-bg-color="#4d5b47"
+                  class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+                />
+              </div>
 
               <!-- Background Option 10 -->
               <div class="bg-option flex flex-col items-center space-y-2">
@@ -1070,6 +737,15 @@
                 <img
                   src="./Media/Black-Background.webp"
                   data-bg-color="#0b0b0b"
+                  class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+                />
+              </div>
+
+              <!-- Background Option 16 -->
+              <div class="bg-option flex flex-col items-center space-y-2">
+                <img
+                  src="./Media/14.jpg"
+                  data-bg-color="#0f0d0b"
                   class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
                 />
               </div>
@@ -1092,11 +768,42 @@
                 />
               </div>
 
-              <!-- Background Option 14 -->
               <div class="bg-option flex flex-col items-center space-y-2">
                 <img
-                  src="./Media/12.png"
-                  data-bg-color="#4d5b47"
+                  src="./Media/37.png"
+                  data-bg-color="#0d0e0c"
+                  class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+                />
+              </div>
+
+              <div class="bg-option flex flex-col items-center space-y-2">
+                <img
+                  src="./Media/38.png"
+                  data-bg-color="#3c3d3d"
+                  class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+                />
+              </div>
+
+              <div class="bg-option flex flex-col items-center space-y-2">
+                <img
+                  src="./Media/39.png"
+                  data-bg-color="#1f1f1f"
+                  class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+                />
+              </div>
+
+              <div class="bg-option flex flex-col items-center space-y-2">
+                <img
+                  src="./Media/36.png"
+                  data-bg-color="#100e0c"
+                  class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+                />
+              </div>
+
+              <div class="bg-option flex flex-col items-center space-y-2">
+                <img
+                  src="./Media/35.png"
+                  data-bg-color="#060606"
                   class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
                 />
               </div>
@@ -1106,15 +813,6 @@
                 <img
                   src="./Media/13.png"
                   data-bg-color="#0e0f0b"
-                  class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-                />
-              </div>
-
-              <!-- Background Option 16 -->
-              <div class="bg-option flex flex-col items-center space-y-2">
-                <img
-                  src="./Media/14.jpg"
-                  data-bg-color="#0f0d0b"
                   class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
                 />
               </div>
@@ -1139,16 +837,6 @@
                 />
               </div>
 
-              <!-- Background Option 19 -->
-
-              <div class="bg-option flex flex-col items-center space-y-2">
-                <img
-                  src="./Media/17.jpg"
-                  data-bg-color="#0f0d0b"
-                  class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
-                />
-              </div>
-
               <!-- Background Option 20 -->
 
               <div class="bg-option flex flex-col items-center space-y-2">
@@ -1163,7 +851,7 @@
 
               <div class="bg-option flex flex-col items-center space-y-2">
                 <img
-                  src="./Media/19.jpg"
+                  src="./Media/19.png"
                   data-bg-color="#0f0d0b"
                   class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
                 />
@@ -1185,6 +873,14 @@
                 <img
                   src="./Media/26.png"
                   data-bg-color="#04090c"
+                  class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
+                />
+              </div>
+
+              <div class="bg-option flex flex-col items-center space-y-2">
+                <img
+                  src="./Media/40.png"
+                  data-bg-color="#050608"
                   class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
                 />
               </div>
@@ -1263,7 +959,7 @@
 
               <div class="bg-option flex flex-col items-center space-y-2">
                 <img
-                  src="./Media/34.png"
+                  src="./Media/portfolio_builder.png"
                   data-bg-color="#0d0d0d"
                   class="bg-thumb w-40 h-20 object-cover rounded-xl cursor-pointer border-2 border-transparent hover:scale-105 transition-all duration-200 ease-out"
                 />
@@ -1272,7 +968,7 @@
           </div>
           <div class="max-w-2xl mx-auto mt-10">
             <div
-              class="bg-zinc-900 rounded-2xl shadow-xl p-6 border border-zinc-700"
+              class="dark_background_color rounded-2xl shadow-xl p-6 border border-zinc-700"
             >
               <h2
                 class="text-2xl font-semibold text-white mb-2 text-center md:text-left"
@@ -1286,23 +982,20 @@
 
               <select
                 id="titleFont"
-                class="w-full px-4 py-3 bg-zinc-800 text-white rounded-lg border border-zinc-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all"
+                class="w-full px-4 py-3 background_color_placeholder text-white rounded-lg border border-zinc-600 transition-all"
               >
                 <option value="'Bethasia'">Bethasia (Recommended)</option>
                 <option value="'Dream Avenue'">
                   Dream Avenue (My favorite)
                 </option>
                 <option value="'Apricot'">Apricot</option>
-                <option value="'Montserrat'">Montserrat</option>
-
-                <option value="'Poppins'">Poppins</option>
-                <option value="'Roboto'">Roboto</option>
-                <option value="'Open Sans'">Open Sans</option>
+                <option value="'Ceria'">Ceria</option>
+                <option value="'Brusher'">Brusher</option>
               </select>
 
               <div
                 id="fontPreview"
-                class="mt-6 bg-zinc-800 rounded-xl px-4 py-6 text-white text-2xl text-center font-semibold transition-all duration-300"
+                class="mt-6 background_color_placeholder rounded-xl px-4 py-6 text-white text-2xl text-center font-semibold transition-all duration-300"
                 style="font-family: 'Bethasia'"
               >
                 This is a font preview.
@@ -1312,7 +1005,7 @@
 
           <div class="max-w-2xl mx-auto mt-10">
             <div
-              class="bg-zinc-900 rounded-2xl shadow-2xl p-6 md:p-8 border border-zinc-700"
+              class="dark_background_color rounded-2xl shadow-2xl p-6 md:p-8 border border-zinc-700"
             >
               <h2
                 class="text-2xl font-semibold text-white mb-2 text-center md:text-left"
@@ -1338,7 +1031,7 @@
                   </label>
                   <select
                     id="socialPlatform"
-                    class="w-full px-4 py-3 bg-zinc-800 text-white border border-zinc-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
+                    class="w-full px-4 py-3 background_color_placeholder text-white rounded-lg transition socialPlatform_border"
                   >
                     <option value="icon_none" disabled selected>Select</option>
                     <option value="facebook">Facebook</option>
@@ -1369,7 +1062,7 @@
                     type="url"
                     id="socialURL"
                     placeholder="Paste your URL here"
-                    class="w-full px-4 py-3 bg-zinc-800 text-white border border-zinc-600 rounded-lg placeholder-zinc-400 placeholder:italic focus:ring-2 focus:ring-blue-500 focus:outline-none transition"
+                    class="w-full px-4 py-3 background_color_placeholder text-white rounded-lg placeholder-zinc-400 placeholder:italic socialPlatform_border transition"
                   />
                 </div>
 
@@ -1389,7 +1082,7 @@
 
           <div class="max-w-2xl mx-auto mt-10">
             <div
-              class="bg-zinc-900 rounded-2xl shadow-xl p-6 border border-zinc-700"
+              class="dark_background_color rounded-2xl shadow-xl p-6 border border-zinc-700"
             >
               <h2
                 class="text-2xl font-semibold text-white mb-2 text-center md:text-left"
@@ -1402,7 +1095,13 @@
               >
                 Upload a small image (usually 32×32px) to represent your site in
                 browser tabs.
+                <a href="Assets/favicon.html" class="underline italic"
+                  >Click Here to Learn About Favicons!</a
+                >
               </p>
+              <div class="favicon_img">
+                <img src="Assets/favicon.png" alt="Favicon Image" />
+              </div>
 
               <!-- Hidden file input -->
               <input
@@ -1419,7 +1118,7 @@
               <button
                 type="button"
                 onclick="document.getElementById('faviconFile').click()"
-                class="flex justify-center items-center w-full py-2 px-4 bg-zinc-800 border border-zinc-600 text-white rounded-lg font-medium text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 hover:bg-zinc-700 transition-all"
+                class="flex justify-center items-center w-full py-2 px-4 background_color_placeholder border border-zinc-600 text-white rounded-lg font-medium text-sm transition-all button_background"
               >
                 <span>Choose Favicon</span>
                 <div class="loader ml-2" id="favicon_loader"></div>
@@ -1442,7 +1141,7 @@
 
           <div class="max-w-2xl mx-auto mt-10">
             <div
-              class="bg-zinc-900 rounded-2xl shadow-xl p-6 border border-zinc-700"
+              class="dark_background_color rounded-2xl shadow-xl p-6 border border-zinc-700"
             >
               <h2
                 class="text-2xl font-semibold text-white mb-2 text-center md:text-left"
@@ -1455,40 +1154,42 @@
               </p>
 
               <div class="flex flex-col gap-4">
-                <!-- Option: With Loader -->
-                <label
-                  for="loaderWith"
-                  class="flex items-center gap-4 cursor-pointer rounded-lg border border-zinc-700 px-5 py-4 text-white text-sm transition-colors duration-200 hover:border-blue-500 hover:bg-zinc-800"
-                >
+                <!-- With Loader Option -->
+                <label class="relative cursor-pointer">
                   <input
                     type="radio"
-                    id="loaderWith"
                     name="loaderOption"
                     value="with"
+                    class="sr-only peer"
                     checked
-                    class="accent-blue-500 w-5 h-5 cursor-pointer"
                   />
-                  <div>
-                    <span class="font-semibold">With Loader</span>
-                    <p class="text-zinc-500 text-xs mt-1">Recommended</p>
+                  <div
+                    class="flex flex-col gap-1 rounded-xl border border-zinc-700 bg-zinc-800/40 p-5 text-white transition-all peer-checked:border-zinc-400 peer-checked:bg-zinc-700/30 hover:border-zinc-400"
+                  >
+                    <span class="text-base font-semibold"
+                      >Enhanced Experience</span
+                    >
+                    <p class="text-zinc-400 text-xs">
+                      Includes a smooth loader – Ideal for polished transitions
+                    </p>
                   </div>
                 </label>
 
-                <!-- Option: Without Loader -->
-                <label
-                  for="loaderWithout"
-                  class="flex items-center gap-4 cursor-pointer rounded-lg border border-zinc-700 px-5 py-4 text-white text-sm transition-colors duration-200 hover:border-blue-500 hover:bg-zinc-800"
-                >
+                <!-- Without Loader Option -->
+                <label class="relative cursor-pointer">
                   <input
                     type="radio"
-                    id="loaderWithout"
                     name="loaderOption"
                     value="without"
-                    class="accent-blue-500 w-5 h-5 cursor-pointer"
+                    class="sr-only peer"
                   />
-                  <div>
-                    <span class="font-semibold">Without Loader</span>
-                    <p class="text-zinc-500 text-xs mt-1">Fast</p>
+                  <div
+                    class="flex flex-col gap-1 rounded-xl border border-zinc-700 bg-zinc-800/40 p-5 text-white transition-all peer-checked:border-zinc-400 peer-checked:bg-zinc-700/30 hover:border-zinc-400"
+                  >
+                    <span class="text-base font-semibold">Instant Start</span>
+                    <p class="text-zinc-400 text-xs">
+                      Skips the loader – Fast and direct experience
+                    </p>
                   </div>
                 </label>
               </div>
@@ -1511,31 +1212,42 @@
         </form>
       </section>
 
-      <section id="whatnext" class="px-6 py-24 max-w-3xl mx-auto text-center">
-        <h3 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-6">
+      <section
+        id="whatnext"
+        class="px-6 py-24 max-w-3xl mx-auto text-center flex flex-col items-center"
+      >
+        <h3 class="text-4xl sm:text-5xl md:text-6xl font-bold mb-8">
           What’s Next?
         </h3>
-        <p class="text-zinc-400 text-base md:text-lg leading-relaxed mb-8">
+        <p
+          class="text-zinc-400 text-base md:text-lg leading-relaxed max-w-2xl mb-12"
+        >
           You’ve successfully generated your portfolio — great job! Now let’s
           bring it to life.
         </p>
 
-        <div
-          class="text-left space-y-6 text-zinc-400 text-base md:text-lg leading-relaxed md:leading-loose"
-        >
-          <div>
-            <strong class="text-white">1. Unzip the Downloaded Folder</strong
-            ><br />
-            Locate the downloaded <code>.zip</code> file on your computer and
-            extract it.
+        <div class="w-full max-w-2xl text-center">
+          <div class="mb-10">
+            <strong class="text-white text-xl block mb-2">
+              1. Unzip the Downloaded Folder
+            </strong>
+            <p class="text-zinc-400 text-base md:text-lg leading-relaxed">
+              Locate the downloaded
+              <code class="bg-zinc-700 px-1 rounded">.zip</code> file on your
+              computer and extract it.
+            </p>
           </div>
 
           <div>
-            <strong class="text-white">2. View Your Portfolio Locally</strong
-            ><br />
-            Open the unzipped folder and double-click the
-            <code>index.html</code> file. It will open in your default web
-            browser — that’s your live portfolio!
+            <strong class="text-white text-xl block mb-2">
+              2. View Your Portfolio Locally
+            </strong>
+            <p class="text-zinc-400 text-base md:text-lg leading-relaxed">
+              Open the unzipped folder and double-click the
+              <code class="bg-zinc-700 px-1 rounded">index.html</code> file. It
+              will open in your default web browser — that’s your live
+              portfolio!
+            </p>
           </div>
         </div>
       </section>
@@ -1561,27 +1273,24 @@
         <p
           class="text-zinc-400 text-base md:text-lg leading-relaxed md:leading-loose mt-2 md:mt-3"
         >
-          Thank you for stopping by. Whether you arrived here by chance,
-          curiosity, or intention—I’m truly glad you did.
+          Thank you for being here. Whether you arrived by chance, curiosity, or
+          intention — I’m truly grateful you did.
         </p>
 
         <p
           class="text-zinc-400 text-base md:text-lg leading-relaxed md:leading-loose mt-2 md:mt-3"
         >
-          This space is more than just a portfolio; it’s a quiet little corner
-          of the internet where I’ve poured fragments of my heart, passion, and
+          This website is more than just a builder; it’s a small corner of the
+          internet where I’ve poured fragments of my heart, passion, and
           creativity. Every design, every line of code, every word is stitched
-          with midnight hustle, quiet hope, an unspoken love for the art of
-          building something meaningful and my belief in the beauty of
-          simplicity, purpose, and human connection.
+          with midnight coding, quiet hope, and an unspoken love for the art of
+          creating something meaningful.
         </p>
 
         <p
           class="text-zinc-400 text-base md:text-lg leading-relaxed md:leading-loose mt-2 md:mt-3"
         >
-          If you’re walking through storms, chasing something invisible, or
-          simply wondering if your spark matters—let me remind you: it does. You
-          do.
+          After all, we’re only here once.
         </p>
 
         <p
@@ -1600,7 +1309,6 @@
       >
         <div class="space_height_bottom"></div>
         <div class="transparent_overlay_bottom"></div>
-        <div class="w-full border-b border-zinc-700"></div>
 
         <div
           class="flex flex-col md:flex-row justify-between gap-12 px-6 md:px-16 py-12"
@@ -1627,15 +1335,16 @@
             <p class="text-zinc-400 text-base md:text-lg leading-snug mt-4">
               Let’s connect and create something amazing together. Feel free to
               reach out to me here
-              <a href="#contact" class="underline">contact</a>. I’m open to new
-              ideas and collaborations. Let’s create!
+              <a
+                href="https://kartikeyalab.github.io/kartikeya/#contact"
+                class="underline"
+                >contact</a
+              >. I’m open to new ideas and collaborations. Let’s create!
             </p>
           </div>
         </div>
 
-        <div
-          class="text-center py-6 text-zinc-400 text-sm border-t border-zinc-700"
-        >
+        <div class="text-center py-6 text-zinc-400 text-sm border_div">
           © <span id="year"></span> Kartikeya. All rights reserved.
         </div>
       </footer>
@@ -1945,13 +1654,14 @@
 
         const id = `custom-${Date.now()}`;
         const label = document.createElement("label");
-        label.className = "flex role-label items-center";
+        label.className =
+          "flex items-center gap-2 background_color_placeholder transition rounded-lg px-4 py-3 cursor-pointer profession_hover";
         label.setAttribute("data-custom", "true");
 
         const input = document.createElement("input");
         input.type = "checkbox";
         input.id = id;
-        input.className = "profession text-blue-500";
+        input.className = "profession";
         input.checked = true;
 
         input.addEventListener("change", handleCheckboxChange);
@@ -2013,6 +1723,21 @@
       setTimeout(showContent, 2000);
 
       window.onload = showContent;
+
+      const updateTheme = (e) => {
+        if (e.matches) {
+          document.body.classList.add("light");
+        } else {
+          document.body.classList.remove("light");
+        }
+      };
+
+      // Initial check
+      const systemPref = window.matchMedia("(prefers-color-scheme: light)");
+      updateTheme(systemPref);
+
+      // Listen to changes
+      systemPref.addEventListener("change", updateTheme);
     </script>
   </body>
 </html>

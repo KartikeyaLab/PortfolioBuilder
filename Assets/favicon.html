@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kartikeya | Code. Design. Create.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="Favicon/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="Favicon/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="Favicon/favicon-96x96.png"
+    />
+    <link rel="icon" href="Favicon/favicon.ico" />
+
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="36x36"
+      href="Favicon/android-icon-36x36.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="48x48"
+      href="Favicon/android-icon-48x48.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="72x72"
+      href="Favicon/android-icon-72x72.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="96x96"
+      href="Favicon/android-icon-96x96.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="144x144"
+      href="Favicon/android-icon-144x144.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="192x192"
+      href="Favicon/android-icon-192x192.png"
+    />
+
+    <link
+      rel="apple-touch-icon"
+      sizes="57x57"
+      href="Favicon/apple-icon-57x57.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="60x60"
+      href="Favicon/apple-icon-60x60.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="72x72"
+      href="Favicon/apple-icon-72x72.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="76x76"
+      href="Favicon/apple-icon-76x76.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="114x114"
+      href="Favicon/apple-icon-114x114.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="120x120"
+      href="Favicon/apple-icon-120x120.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="144x144"
+      href="Favicon/apple-icon-144x144.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="152x152"
+      href="Favicon/apple-icon-152x152.png"
+    />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="Favicon/apple-icon-180x180.png"
+    />
+    <link rel="apple-touch-icon" href="Favicon/apple-icon-precomposed.png" />
+    <link rel="apple-touch-icon" href="Favicon/apple-icon.png" />
+
+    <meta name="msapplication-TileImage" content="Favicon/ms-icon-70x70.png" />
+    <meta
+      name="msapplication-TileImage"
+      content="Favicon/ms-icon-144x144.png"
+    />
+    <meta
+      name="msapplication-TileImage"
+      content="Favicon/ms-icon-150x150.png"
+    />
+    <meta
+      name="msapplication-TileImage"
+      content="Favicon/ms-icon-310x310.png"
+    />
+    <link rel="stylesheet" href="../style.css" />
+
+    <script
+      src="https://kit.fontawesome.com/542131e2b7.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+      body {
+        font-family: "Montserrat", sans-serif;
+        background-color: #090909;
+      }
+
+      @keyframes shimmer {
+        0% {
+          background-position: -200% 0;
+        }
+        100% {
+          background-position: 200% 0;
+        }
+      }
+
+      .glass-animated {
+        position: relative;
+        background: linear-gradient(
+          130deg,
+          rgba(255, 255, 255, 0.05) 0%,
+          rgba(255, 255, 255, 0.1) 25%,
+          rgba(255, 255, 255, 0.2) 50%,
+          rgba(255, 255, 255, 0.1) 75%,
+          rgba(255, 255, 255, 0.05) 100%
+        );
+        background-size: 400% 100%;
+        animation: shimmer 10s ease-in-out infinite;
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        border-radius: 10px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease, filter 0.3s ease;
+      }
+
+      .glass-animated:hover {
+        transform: scale(1.02);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .fade-element {
+        opacity: 1;
+        transition: opacity 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+    </style>
+  </head>
+  <body class="text-white">
+    <div id="loading-circle" class="loading-circle">
+      <div class="spinner"></div>
+      <div id="loading-circle">
+        <div class="spinner"></div>
+      </div>
+    </div>
+
+    <div class="container_universal_hidden">
+      <nav>
+        <div class="wrapper">
+          <div class="logo">
+            <a href="#">Kartikeya</a>
+          </div>
+
+          <input type="radio" name="slider" id="menu-btn" />
+          <input type="radio" name="slider" id="close-btn" />
+          <ul class="nav-links">
+            <label for="close-btn" class="btn close-btn">
+              <i class="fas fa-times"></i>
+            </label>
+            <li><a href="#" class="nav-link">Home</a></li>
+
+            <li>
+              <a href="https://github.com/KartikeyaLab" target="_blank"
+                >Github</a
+              >
+            </li>
+            <li>
+              <a href="https://www.youtube.com/@clever-ways" target="_blank"
+                >Youtube</a
+              >
+            </li>
+            <li>
+              <a href="https://monkeytype.com/profile/Karitkeya" target="_blank"
+                >Monkeytype</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://kartikeyalab.github.io/PortfolioBuilder/"
+                class="nav-link"
+                >Portfolio Builder</a
+              >
+            </li>
+            <li class="search_botton">
+              <a href="#" onclick="focusSearchBar(event)">
+                <i class="fa-solid fa-magnifying-glass"></i>
+              </a>
+            </li>
+
+            <li class="search_botton">
+              <a href="#message_for_you">
+                <i class="fa-solid fa-heart"></i>
+              </a>
+            </li>
+          </ul>
+
+          <label for="menu-btn" class="btn menu-btn">
+            <i class="fas fa-bars"></i>
+          </label>
+        </div>
+      </nav>
+
+      <section
+        class="flex-grow flex flex-col justify-center items-center text-center px-6 header fade-element"
+      >
+        <h2 class="text-6xl md:text-8xl font-bold mb-2 leading-none">
+          What’s a Favicon?
+        </h2>
+
+        <p class="text-zinc-400 text-base md:text-lg fade-element">
+          A quick guide to the tiny icon that represents your website in the
+          browser tab
+        </p>
+
+        <div
+          class="flex flex-wrap justify-center items-center gap-4 md:gap-6 p-4 rounded-xl"
+        >
+          <a
+            href="#about-favicon"
+            title="Build Your Portfolio"
+            class="group relative inline-flex items-center justify-center px-8 py-3 rounded-xl glass-animated transition-all duration-300 hover:scale-105"
+          >
+            <span
+              class="absolute inset-0 rounded-xl bg-gradient-to-r from-transparent to-white/20 opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+            ></span>
+            <span
+              class="relative z-10 text-base font-medium text-white group-hover:text-white/90 transition-colors duration-300"
+            >
+              Learn Now!
+            </span>
+          </a>
+        </div>
+        <div class="transparent_overlay"></div>
+      </section>
+      <section
+        id="about-favicon"
+        class="px-6 py-24 max-w-3xl mx-auto text-center"
+      >
+        <h3
+          class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-2 sm:mb-4"
+        >
+          What is a Favicon?
+        </h3>
+        <p class="dim_text mb-8 text-base">
+          A deep dive into the tiny yet powerful icon that gives your website
+          its identity.
+        </p>
+
+        <img
+          src="favicon.png"
+          alt="Favicon Example in Browser Tabs"
+          class="rounded-lg mb-10"
+        />
+
+        <p
+          class="text-zinc-400 text-base md:text-lg leading-relaxed md:leading-loose"
+        >
+          A favicon — short for "favorite icon" — is a small icon associated
+          with a website. You’ve probably noticed it as the tiny symbol that
+          appears in your browser tab, bookmarks bar, or history list. Though
+          it's small in size, a favicon plays a big role in helping users
+          visually recognize and identify a website quickly.
+        </p>
+
+        <p
+          class="text-zinc-400 text-base md:text-lg leading-relaxed md:leading-loose mt-4 md:mt-6"
+        >
+          Favicons are typically square and saved in formats like .ico, .png, or
+          .svg. The standard size is 16x16 pixels, but modern websites often
+          include multiple sizes for better compatibility across devices and
+          platforms — including tablets, phones, and pinned tabs.
+        </p>
+
+        <p
+          class="text-zinc-400 text-base md:text-lg leading-relaxed md:leading-loose mt-4 md:mt-6"
+        >
+          Besides helping with brand recognition, favicons can make your website
+          feel polished and professional. Without one, your site may show a
+          generic browser icon — or worse, nothing at all — making it harder for
+          users to distinguish your page when multiple tabs are open.
+        </p>
+
+        <p
+          class="text-zinc-400 text-base md:text-lg leading-relaxed md:leading-loose mt-4 md:mt-6"
+        >
+          Implementing a favicon is simple. Just upload your icon file and link
+          it in the HTML using the &lt;link rel="icon"&gt; tag. This site lets
+          you upload an image and instantly preview how it looks in a browser
+          tab — helping you visualize your brand in action.
+        </p>
+      </section>
+      <footer
+        id="footer"
+        class="relative w-full bg-black bg-opacity-90 text-white footer-section"
+      >
+        <div class="space_height_bottom"></div>
+        <div class="transparent_overlay_bottom"></div>
+        <div class="w-full border-b border-zinc-700"></div>
+
+        <div
+          class="flex flex-col md:flex-row justify-between gap-12 px-6 md:px-16 py-12"
+        >
+          <div class="w-full md:w-1/2">
+            <h2
+              class="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-normal"
+            >
+              About Me
+            </h2>
+            <p class="text-zinc-400 text-base md:text-lg leading-loose mt-4">
+              I’m Kartikeya, a programmer and typist, skilled in front-end
+              development (HTML, CSS, JavaScript, React) and Python. I also have
+              experience in C and video editing
+            </p>
+          </div>
+
+          <div class="w-full md:w-1/2">
+            <h2
+              class="text-3xl md:text-4xl lg:text-5xl font-semibold tracking-normal"
+            >
+              Wanna talk?
+            </h2>
+            <p class="text-zinc-400 text-base md:text-lg leading-loose mt-4">
+              Let’s connect and create something amazing together. Feel free to
+              reach out to me here
+              <a href="#contact" class="underline">contact</a>. I’m open to new
+              ideas and collaborations. Let’s create!
+            </p>
+          </div>
+        </div>
+
+        <div
+          class="max-w-7xl mx-auto px-4 py-6 text-center text-sm tracking-wider text-zinc-400"
+        >
+          © <span id="year"></span>
+          Kartikeya. All rights reserved.
+        </div>
+      </footer>
+    </div>
+    <script>
+      document.getElementById("year").textContent = new Date().getFullYear();
+
+      function setupNav() {
+        const navLinks = document.querySelectorAll(".nav-link");
+        navLinks.forEach((link) => {
+          link.addEventListener("click", () => {
+            document.getElementById("menu-btn").checked = false;
+          });
+        });
+      }
+
+      document.querySelectorAll(".nav-link").forEach((link) => {
+        link.addEventListener("click", () => {
+          document.getElementById("close-btn").checked = true;
+        });
+      });
+
+      window.onload = () => {
+        const loadingCircle = document.getElementById("loading-circle");
+        const content = document.querySelector(".container_universal_hidden");
+
+        if (loadingCircle) loadingCircle.classList.add("hidden");
+
+        setTimeout(() => {
+          if (content) content.classList.add("show");
+        }, 500);
+      };
+    </script>
+  </body>
+</html>
