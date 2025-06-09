@@ -1207,18 +1207,32 @@
             </div>
           </div>
 
-          <div class="flex justify-center mt-6">
+          <div
+            class="grid grid-cols-1 sm:grid-cols-2 gap-4 md:flex md:justify-center md:items-center md:gap-6 mt-6"
+          >
+            <!-- Submit Button -->
             <button
               type="submit"
               id="submitBtn"
-              class="button_background text-white font-semibold px-6 py-3 rounded-lg flex items-center justify-center shadow-md transition"
+              class="button_background text-white font-semibold px-6 py-3 rounded-lg flex items-center justify-center shadow-md transition w-full sm:w-auto"
             >
-              <span id="btnText">Generate My Site</span>
+              <span id="btnText">Generate Now!</span>
               <div
                 id="loader_site"
                 class="ml-2 w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin hidden"
               ></div>
             </button>
+
+            <!-- Anchor Button -->
+            <a
+              href="https://kartikeya.onrender.com/"
+              class="button_background text-white font-semibold px-6 py-3 rounded-lg flex items-center justify-center shadow-md transition w-full sm:w-auto"
+            >
+              <span>Publish For Free!</span>
+              <div
+                class="ml-2 w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin hidden"
+              ></div>
+            </a>
           </div>
         </form>
       </section>
