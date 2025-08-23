@@ -62,14 +62,7 @@ This project is open for use, modification, and distribution under the terms of 
 
 **Creator:** Kartikeya
 
-## ℹ️ About Me
-
-I am a developer with a passion for creating helpful and innovative solutions. Portfolio Builder is one of my personal projects, developed purely for enjoyment.
-
 ## 🔗 Connect with Me
 
   * **Portfolio:** [Portfolio](http://kartikeyalab.github.io/kartikeya)
-  * **GitHub:** [KartikeyaLab on GitHub](https://github.com/KartikeyaLab)
-  * **Monkeytype:** [Monkeytype Profile](https://monkeytype.com/profile/Karitkeya)
-  * **YouTube Channel:** [YouTube Channel](https://www.youtube.com/@clever-ways)
   * **Portfolio Builder:** [Portfolio Builder (Free)](https://kartikeyalab.github.io/PortfolioBuilder/)
